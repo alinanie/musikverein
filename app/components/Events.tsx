@@ -37,8 +37,7 @@ export default function Events() {
             Hier ist jede Menge Musik drin
           </h2>
           <p className="text-[18px] text-[#252525] mt-2 max-w-2xl">
-            Wir spielen zu verschiedenen Gelegenheiten, aber auch gemeinsame
-            Unternehmungen kommen nicht zu kurz.
+            Ob Frühjahrskonzert, Dorffest oder Kirchweih – überall wo Hellmonsödt feiert, sind wir mit dabei.
           </p>
         </div>
 
