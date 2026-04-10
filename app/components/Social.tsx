@@ -1,7 +1,19 @@
+import Image from "next/image";
+
 export default function Social() {
   return (
-    <section id="aktuelles" className="bg-[#00628e] py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="aktuelles" className="relative overflow-hidden py-20">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/social-media-bg.png"
+          alt=""
+          fill
+          className="object-cover"
+          aria-hidden="true"
+        />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Text */}
           <div className="max-w-2xl">

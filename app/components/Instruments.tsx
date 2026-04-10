@@ -1,21 +1,31 @@
 import Image from "next/image";
+import AnimateIn from "./AnimateIn";
 
-const instruments = [
-  [
-    { name: "Querflöte", image: "/images/instruments/querflöte.jpg" },
-    { name: "Klarinette", image: "/images/instruments/klarinette.jpg" },
-    { name: "Oboe", image: "/images/instruments/oboe.jpg" },
-  ],
-  [
-    { name: "Trompete", image: "/images/instruments/trompete.jpg" },
-    { name: "Posaune", image: "/images/instruments/posaune.jpg" },
-    { name: "Horn", image: "/images/instruments/horn.jpg" },
-  ],
-  [
-    { name: "Tuba", image: "/images/instruments/tuba.jpg" },
-    { name: "Saxophon", image: "/images/instruments/saxophon.jpg" },
-    { name: "Schlagwerk", image: "/images/instruments/schlagwerk.jpg" },
-  ],
+const groups = [
+  {
+    label: "Holzbläser",
+    instruments: [
+      { name: "Querflöte", image: "/images/instruments/querflöte.jpg" },
+      { name: "Klarinette", image: "/images/instruments/klarinette.jpg" },
+      { name: "Oboe", image: "/images/instruments/oboe.jpg" },
+      { name: "Saxophon", image: "/images/instruments/saxophon.jpg" },
+    ],
+  },
+  {
+    label: "Blechbläser",
+    instruments: [
+      { name: "Trompete", image: "/images/instruments/trompete.jpg" },
+      { name: "Posaune", image: "/images/instruments/posaune.jpg" },
+      { name: "Horn", image: "/images/instruments/horn.jpg" },
+      { name: "Tuba", image: "/images/instruments/tuba.jpg" },
+    ],
+  },
+  {
+    label: "Schlagwerk",
+    instruments: [
+      { name: "Schlagwerk", image: "/images/instruments/schlagwerk.jpg" },
+    ],
+  },
 ];
 
 export default function Instruments() {
@@ -29,26 +39,32 @@ export default function Instruments() {
           <p className="text-[18px] text-[#252525] mt-2">Vielfalt in jedem Register</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {instruments.map((col, ci) => (
-            <div key={ci} className="flex flex-col gap-4">
-              {col.map(({ name, image }) => (
-                <div
-                  key={name}
-                  className="bg-white rounded-2xl px-5 py-3 flex items-center gap-4 shadow-sm"
-                >
-                  <div className="relative w-10 h-10 shrink-0">
-                    <Image
-                      src={image}
-                      alt={name}
-                      fill
-                      className="object-contain"
-                      sizes="40px"
-                    />
-                  </div>
-                  <span className="text-[18px] font-medium text-[#252525]">{name}</span>
-                </div>
-              ))}
+        <div className="flex flex-col gap-10">
+          {groups.map(({ label, instruments }) => (
+            <div key={label}>
+              <AnimateIn>
+                <h3 className="text-[22px] font-semibold text-[#00628e] mb-4 font-[family-name:var(--font-palanquin)]">
+                  {label}
+                </h3>
+              </AnimateIn>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                {instruments.map(({ name, image }, i) => (
+                  <AnimateIn key={name} delay={i * 80}>
+                    <div className="bg-white rounded-2xl px-5 py-3 flex items-center gap-4 shadow-sm">
+                      <div className="relative w-10 h-10 shrink-0">
+                        <Image
+                          src={image}
+                          alt={name}
+                          fill
+                          className="object-contain"
+                          sizes="40px"
+                        />
+                      </div>
+                      <span className="text-[18px] font-medium text-[#252525]">{name}</span>
+                    </div>
+                  </AnimateIn>
+                ))}
+              </div>
             </div>
           ))}
         </div>

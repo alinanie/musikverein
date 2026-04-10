@@ -12,6 +12,13 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 0);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -35,7 +42,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#fff8f0]/95 backdrop-blur-sm border-b border-[#e8ddd0]">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-[#fff8f0]/95 backdrop-blur-sm border-b border-[#e8ddd0] transition-shadow duration-300 ${scrolled ? "shadow-md" : ""}`}>
       <div className="max-w-7xl mx-auto px-6 h-[105px] flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
