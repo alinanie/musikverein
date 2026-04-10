@@ -21,7 +21,7 @@ const events = [
       "Ob das Maibaumaufstellen, das Kürbisfest oder der Abschluss des Kindersommers: Wir geben den verschiedenen Feierlichkeiten unserer Gemeinde einen musikalischen Rahmen.",
   },
   {
-    image: "/images/kirchenbild1.jpg",
+    image: "/images/kirche1.jpg",
     title: "Begleitung kirchlicher Festlichkeiten",
     description:
       "Ob Kommunion, Firmung oder die musikalische Umrahmung durch unsere Turmbläser zur Weihnachtszeit: auch die kirchlichen Feste unserer Gemeinde begleiten wir mit viel Freude.",
