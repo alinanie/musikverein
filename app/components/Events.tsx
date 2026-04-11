@@ -1,23 +1,30 @@
 import Image from "next/image";
+import AnimateIn from "./AnimateIn";
 
 const events = [
   {
-    image: "/images/event1.jpg",
+    image: "/images/wertung.jpg",
     title: "Konzert- & Marschwertungen",
     description:
       "Ob Marsch- oder Konzertwertung, wir nehmen wenn möglich an beiden Wertungen des Blasmusikverbandes für den Bezirk Urfahr-Umgebung teil.",
   },
   {
-    image: "/images/event2.jpg",
+    image: "/images/konzert.png",
     title: "Konzerte",
     description:
       "Jedes Jahr wird es neu geplant: Ein Kinderkonzert, ein Frühjahrskonzert oder ein Herbstkonzert. Auch abseits von Polka und Marsch zeigen wir unser Können z.B. mit Filmmusik oder Wiener Klassikern.",
   },
   {
-    image: "/images/event3.jpg",
+    image: "/images/ausrueckung.jpg",
     title: "Ausrückung",
     description:
       "Ob das Maibaumaufstellen, das Kürbisfest oder der Abschluss des Kindersommers: Wir geben den verschiedenen Feierlichkeiten unserer Gemeinde einen musikalischen Rahmen.",
+  },
+  {
+    image: "/images/kirche1.jpg",
+    title: "Begleitung kirchlicher Festlichkeiten",
+    description:
+      "Ob Kommunion, Firmung oder die musikalische Umrahmung durch unsere Turmbläser zur Weihnachtszeit: auch die kirchlichen Feste unserer Gemeinde begleiten wir mit viel Freude.",
   },
 ];
 
@@ -30,15 +37,14 @@ export default function Events() {
             Hier ist jede Menge Musik drin
           </h2>
           <p className="text-[18px] text-[#252525] mt-2 max-w-2xl">
-            Wir spielen zu verschiedenen Gelegenheiten, aber auch gemeinsame
-            Unternehmungen kommen nicht zu kurz.
+            Ob Frühjahrskonzert, Dorffest oder Kirchweih – überall wo Hellmonsödt feiert, sind wir mit dabei.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {events.map((event) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          {events.map((event, i) => (
+            <AnimateIn key={event.title} delay={i * 120}>
             <div
-              key={event.title}
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
             >
               <div className="relative aspect-[4/3]">
@@ -58,6 +64,7 @@ export default function Events() {
                 </p>
               </div>
             </div>
+            </AnimateIn>
           ))}
         </div>
       </div>
