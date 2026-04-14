@@ -12,9 +12,6 @@ export default function Social() {
           className="object-cover"
           aria-hidden="true"
         />
-        <span className="absolute bottom-2 right-3 text-[10px] text-white/70 bg-black/30 px-1.5 py-0.5 rounded pointer-events-none select-none">
-          © Wilhelm Wolfmayr
-        </span>
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
