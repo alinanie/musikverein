@@ -1,4 +1,5 @@
 import AnimateIn from "./AnimateIn";
+import ObfuscatedMailLink from "./ObfuscatedMailLink";
 
 export default function Support() {
   return (
@@ -32,17 +33,11 @@ export default function Support() {
                 Du musst kein Instrument spielen, um ein Teil von uns zu sein. Als förderndes Mitglied trägst du dazu bei, dass unser Verein weiterhin für die Gemeinde musizieren kann.
               </p>
               <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
-              <a
-                href="mailto:mvhellmonsoedt@gmail.com"
-                className="inline-flex items-center gap-2 text-[#00628e] font-semibold text-[15px] hover:underline"
-              >
-                <MailIcon color="#00628e" />
-                mvhellmonsoedt@gmail.com
-              </a>
+              <ObfuscatedMailLink color="#00628e" />
             </div>
           </AnimateIn>
 
-          {/* Sponsoren */}
+          {/* Sponsoring */}
           <AnimateIn delay={120}>
             <div className="bg-white rounded-2xl p-8 shadow-sm h-full flex flex-col">
               <div className="w-12 h-12 rounded-xl bg-[#cb6615] flex items-center justify-center mb-5">
@@ -55,13 +50,7 @@ export default function Support() {
                 Werde Werbepartner des Musikvereins Hellmonsödt! Ob Inserat im Programmheft, Logo auf unserem Plakat oder Präsenz auf unserer Website – wir finden gemeinsam die passende Form der Zusammenarbeit.
               </p>
               <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
-              <a
-                href="mailto:mvhellmonsoedt@gmail.com"
-                className="inline-flex items-center gap-2 text-[#cb6615] font-semibold text-[15px] hover:underline"
-              >
-                <MailIcon color="#cb6615" />
-                mvhellmonsoedt@gmail.com
-              </a>
+              <ObfuscatedMailLink color="#cb6615" />
             </div>
           </AnimateIn>
 
@@ -78,13 +67,7 @@ export default function Support() {
                 Mit einer Spende unterstützt du direkt unsere Arbeit – von der Anschaffung neuer Noten bis zur Ausrüstung unserer Jugend. Jeder Beitrag zählt und kommt direkt der Musik zugute.
               </p>
               <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
-              <a
-                href="mailto:mvhellmonsoedt@gmail.com"
-                className="inline-flex items-center gap-2 text-[#00628e] font-semibold text-[15px] hover:underline"
-              >
-                <MailIcon color="#00628e" />
-                mvhellmonsoedt@gmail.com
-              </a>
+              <ObfuscatedMailLink color="#00628e" />
             </div>
           </AnimateIn>
 
@@ -166,14 +149,6 @@ function HandsIcon() {
   );
 }
 
-function MailIcon({ color = "white" }: { color?: string }) {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-      <polyline points="22,6 12,13 2,6" />
-    </svg>
-  );
-}
 
 function FacebookIcon() {
   return (
