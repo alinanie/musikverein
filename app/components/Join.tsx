@@ -1,6 +1,6 @@
 export default function Join() {
   return (
-    <section id="mitmachen" className="bg-[#00628e] py-24">
+    <section id="mitmachen" className="bg-[#00628e] py-16 min-[720px]:py-24">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Headline above everything */}

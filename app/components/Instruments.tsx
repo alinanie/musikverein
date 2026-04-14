@@ -32,7 +32,7 @@ const groups = [
 
 export default function Instruments() {
   return (
-    <section className="bg-[#fff8f0] py-24">
+    <section className="bg-[#fff8f0] py-16 min-[720px]:py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12">
           <h2 className="text-[48px] font-bold text-[#252525] font-[family-name:var(--font-palanquin)]">

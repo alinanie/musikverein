@@ -2,7 +2,7 @@ import AnimateIn from "./AnimateIn";
 
 export default function Support() {
   return (
-    <section id="unterstuetzen" className="bg-[#fff8f0] py-24">
+    <section id="unterstuetzen" className="bg-[#fff8f0] py-16 min-[720px]:py-24">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Headline */}

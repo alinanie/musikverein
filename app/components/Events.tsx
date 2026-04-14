@@ -16,7 +16,7 @@ const events = [
   },
   {
     image: "/images/maibaum.png",
-    title: "Ausrückung",
+    title: "Dahoam und draußn",
     description:
       "Ob das Maibaumaufstellen, das Kürbisfest oder der Abschluss des Kindersommers: Wir geben den verschiedenen Feierlichkeiten unserer Gemeinde einen musikalischen Rahmen.",
   },
@@ -30,7 +30,7 @@ const events = [
 
 export default function Events() {
   return (
-    <section className="bg-[#faf3ea] py-24">
+    <section className="bg-[#faf3ea] py-16 min-[720px]:py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12">
           <h2 className="text-[48px] font-bold text-[#252525] font-[family-name:var(--font-palanquin)]">

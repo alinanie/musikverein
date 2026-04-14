@@ -4,7 +4,7 @@ import AnimateIn from "./AnimateIn";
 
 export default function About() {
   return (
-    <section id="ueber-uns" className="bg-[#faf3ea] py-24">
+    <section id="ueber-uns" className="bg-[#faf3ea] py-16 min-[720px]:py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Left: image */}
