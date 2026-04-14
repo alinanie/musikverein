@@ -52,7 +52,7 @@ export default function Support() {
                 Sponsoring & Werbepartner
               </h3>
               <p className="text-[16px] text-[#575756] leading-relaxed mb-6 flex-1">
-                Werden Sie Werbepartner des Musikvereins Hellmonsödt! Ob Inserat im Programmheft, Logo auf unserem Plakat oder Präsenz auf unserer Website – wir finden gemeinsam die passende Form der Zusammenarbeit.
+                Werde Werbepartner des Musikvereins Hellmonsödt! Ob Inserat im Programmheft, Logo auf unserem Plakat oder Präsenz auf unserer Website – wir finden gemeinsam die passende Form der Zusammenarbeit.
               </p>
               <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
               <a
