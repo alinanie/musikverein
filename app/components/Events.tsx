@@ -15,7 +15,7 @@ const events = [
       "Jedes Jahr wird es neu geplant: Ein Kinderkonzert, ein Frühjahrskonzert oder ein Herbstkonzert. Auch abseits von Polka und Marsch zeigen wir unser Können z.B. mit Filmmusik oder Wiener Klassikern.",
   },
   {
-    image: "/images/ausrueckung.jpg",
+    image: "/images/maibaum.png",
     title: "Ausrückung",
     description:
       "Ob das Maibaumaufstellen, das Kürbisfest oder der Abschluss des Kindersommers: Wir geben den verschiedenen Feierlichkeiten unserer Gemeinde einen musikalischen Rahmen.",
@@ -54,6 +54,9 @@ export default function Events() {
                   fill
                   className="object-cover"
                 />
+                <span className="absolute bottom-1.5 right-2 text-[10px] text-white/80 bg-black/30 px-1.5 py-0.5 rounded pointer-events-none select-none">
+                  © Wilhelm Wolfmayr
+                </span>
               </div>
               <div className="p-6">
                 <h3 className="text-[20px] font-bold text-[#252525] mb-3 font-[family-name:var(--font-palanquin)]">

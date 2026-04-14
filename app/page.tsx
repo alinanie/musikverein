@@ -5,6 +5,7 @@ import Instruments from "./components/Instruments";
 import Join from "./components/Join";
 import Youth from "./components/Youth";
 import Events from "./components/Events";
+import Support from "./components/Support";
 import Social from "./components/Social";
 import Footer from "./components/Footer";
 
@@ -16,9 +17,10 @@ export default function Home() {
         <Hero />
         <About />
         <Instruments />
+        <Events />
         <Join />
         <Youth />
-        <Events />
+        <Support />
         <Social />
       </main>
       <Footer />

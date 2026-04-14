@@ -1,6 +1,7 @@
 import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 
+
 export default function About() {
   return (
     <section id="ueber-uns" className="bg-[#faf3ea] py-24">
@@ -15,6 +16,9 @@ export default function About() {
                 fill
                 className="object-cover"
               />
+              <span className="absolute bottom-2 right-2 text-[10px] text-white/80 bg-black/30 px-1.5 py-0.5 rounded pointer-events-none select-none">
+                © Wilhelm Wolfmayr
+              </span>
             </div>
             {/* Quote */}
             <div className="flex items-center gap-3 mt-6">
@@ -44,15 +48,21 @@ export default function About() {
 
             {/* Cards */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <div className="flex-1 bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="text-[18px] font-bold text-[#252525] mb-2">Tradition</h3>
-                <p className="text-[16px] text-[#575756] leading-relaxed">
+              <div className="flex-1 bg-[#00628e] rounded-2xl p-6 shadow-md">
+                <div className="relative h-16 w-16 mb-4">
+                  <Image src="/images/notenstern.svg" alt="" fill className="object-contain invert" />
+                </div>
+                <h3 className="text-[18px] font-bold text-white mb-2">Tradition</h3>
+                <p className="text-[15px] text-white/80 leading-relaxed">
                   Bewahrung kultureller Werte und musikalischer Wurzeln seit Jahrzehnten.
                 </p>
               </div>
-              <div className="flex-1 bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="text-[18px] font-bold text-[#252525] mb-2">Gemeinschaft</h3>
-                <p className="text-[16px] text-[#575756] leading-relaxed">
+              <div className="flex-1 bg-[#cb6615] rounded-2xl p-6 shadow-md">
+                <div className="relative h-16 w-16 mb-4">
+                  <Image src="/images/handshake.svg" alt="" fill className="object-contain invert" />
+                </div>
+                <h3 className="text-[18px] font-bold text-white mb-2">Gemeinschaft</h3>
+                <p className="text-[15px] text-white/80 leading-relaxed">
                   Zusammenhalt über Generationen hinweg, vom Jungmusiker bis zum Ehrenmitglied.
                 </p>
               </div>

@@ -90,6 +90,9 @@ export default function Hero() {
                   priority
                 />
               </div>
+              <span className="absolute bottom-2 right-2 text-[10px] text-white/80 bg-black/30 px-1.5 py-0.5 rounded pointer-events-none select-none z-10">
+                © Wilhelm Wolfmayr
+              </span>
             </div>
             {/* Logo badge */}
             <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl">

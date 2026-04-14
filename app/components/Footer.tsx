@@ -23,10 +23,10 @@ export default function Footer() {
 
           {/* Footer links */}
           <nav className="flex items-center gap-6">
-            <a href="#" className="text-[14px] text-[#575756] hover:text-[#00628e] transition-colors">
+            <a href="/impressum" className="text-[14px] text-[#575756] hover:text-[#00628e] transition-colors">
               Impressum
             </a>
-            <a href="#" className="text-[14px] text-[#575756] hover:text-[#00628e] transition-colors">
+            <a href="/datenschutz" className="text-[14px] text-[#575756] hover:text-[#00628e] transition-colors">
               Datenschutz
             </a>
           </nav>

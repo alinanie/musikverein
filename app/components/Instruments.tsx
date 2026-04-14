@@ -15,6 +15,8 @@ const groups = [
     label: "Blechbläser",
     instruments: [
       { name: "Trompete", image: "/images/instruments/trompete.jpg" },
+      { name: "Flügelhorn", image: "/images/instruments/fluegelhorn.jpg" },
+      { name: "Tenorhorn", image: "/images/instruments/tenorhorn.jpg" },
       { name: "Posaune", image: "/images/instruments/posaune.jpg" },
       { name: "Horn", image: "/images/instruments/horn.jpg" },
       { name: "Tuba", image: "/images/instruments/tuba.jpg" },
@@ -36,7 +38,7 @@ export default function Instruments() {
           <h2 className="text-[48px] font-bold text-[#252525] font-[family-name:var(--font-palanquin)]">
             Unsere Instrumente
           </h2>
-          <p className="text-[18px] text-[#252525] mt-2">Vielfalt in jedem Register</p>
+          <p className="text-[18px] text-[#252525] mt-2">Jedes Instrument hat seine Stimme. Zusammen ergeben sie unsere.</p>
         </div>
 
         <div className="flex flex-col gap-10">
