@@ -21,9 +21,30 @@ const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
-  title: "Musikverein Hellmonsödt",
+  metadataBase: new URL("https://musikverein-hellmonsoedt.vercel.app"),
+  title: {
+    default: "Musikverein Hellmonsödt",
+    template: "%s | Musikverein Hellmonsödt",
+  },
   description:
-    "Der Musikverein Hellmonsödt – Seit Generationen durch Musik verbunden.",
+    "Der Musikverein Hellmonsödt – 61 aktive MusikerInnen aus dem Mühlviertel. Konzerte, Ausrückungen & Jugendmusik in Hellmonsödt, Oberösterreich.",
+  openGraph: {
+    type: "website",
+    locale: "de_AT",
+    url: "https://musikverein-hellmonsoedt.vercel.app",
+    siteName: "Musikverein Hellmonsödt",
+    title: "Musikverein Hellmonsödt",
+    description:
+      "Der Musikverein Hellmonsödt – 61 aktive MusikerInnen aus dem Mühlviertel. Konzerte, Ausrückungen & Jugendmusik in Hellmonsödt, Oberösterreich.",
+    images: [{ url: "/images/gruppenbild1.jpg", width: 1200, height: 630, alt: "Musikverein Hellmonsödt" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Musikverein Hellmonsödt",
+    description:
+      "Der Musikverein Hellmonsödt – 61 aktive MusikerInnen aus dem Mühlviertel. Konzerte, Ausrückungen & Jugendmusik in Hellmonsödt, Oberösterreich.",
+    images: ["/images/gruppenbild1.jpg"],
+  },
 };
 
 export default function RootLayout({
