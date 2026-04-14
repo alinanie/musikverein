@@ -1,53 +1,43 @@
-import Image from "next/image";
-
 export default function Join() {
   return (
     <section id="mitmachen" className="bg-[#00628e] py-24">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+
+        {/* Headline above everything */}
+        <h2 className="text-[48px] font-bold text-white mb-10 font-[family-name:var(--font-palanquin)]">
+          Wir haben noch Plätze frei!
+        </h2>
+
+        <div className="flex flex-col lg:flex-row items-start gap-16">
+
           {/* Left: text */}
-          <div className="flex-1 max-w-[600px]">
-            <h2 className="text-[48px] font-bold text-white mb-6 font-[family-name:var(--font-palanquin)]">
-              Wir haben noch Plätze frei!
-            </h2>
-            <p className="text-[18px] text-white/90 leading-relaxed mb-10">
+          <div className="flex-1">
+            <p className="text-[18px] text-white/90 leading-relaxed">
               Egal ob Anfänger, Wiedereinsteiger oder erfahrene Musikerin – bei
               uns ist jede und jeder willkommen. Wir bieten ein motivierendes
               Umfeld, professionelle musikalische Leitung und eine unschlagbare
               Kameradschaft!
             </p>
+          </div>
 
-            {/* Info cards */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1 bg-white/10 border border-white/20 rounded-2xl p-6">
-                <div className="flex items-center gap-3 mb-2">
-                  <ClockIcon />
-                  <h3 className="text-[18px] font-bold text-white">Proben jeden Freitag</h3>
-                </div>
-                <p className="text-[16px] text-white/80">19:30 – 21:15 Uhr · Wir freuen uns auf dich!</p>
+          {/* Right: info cards side by side */}
+          <div className="flex-1 flex flex-col sm:flex-row gap-4 w-full">
+            <div className="flex-1 bg-white/10 border border-white/20 rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-2">
+                <ClockIcon />
+                <h3 className="text-[18px] font-bold text-white">Proben jeden Freitag</h3>
               </div>
-              <div className="flex-1 bg-white/10 border border-white/20 rounded-2xl p-6">
-                <div className="flex items-center gap-3 mb-2">
-                  <PinIcon />
-                  <h3 className="text-[18px] font-bold text-white">Probenlokal</h3>
-                </div>
-                <p className="text-[16px] text-white/80">Im Obergeschoss des Gemeindeamtes Hellmonsödt</p>
+              <p className="text-[16px] text-white/80">19:30 – 21:15 Uhr · Wir freuen uns auf dich!</p>
+            </div>
+            <div className="flex-1 bg-white/10 border border-white/20 rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-2">
+                <PinIcon />
+                <h3 className="text-[18px] font-bold text-white">Probenlokal</h3>
               </div>
+              <p className="text-[16px] text-white/80">Im Obergeschoss des Gemeindeamtes Hellmonsödt</p>
             </div>
           </div>
 
-          {/* Right: image */}
-          <div className="flex-1 w-full max-w-[500px]">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/mitmachen.jpg"
-                alt="Musikverein Mitmachen"
-                width={500}
-                height={750}
-                className="w-full h-auto object-contain"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,37 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export default function Hero() {
+  const imageRef = useRef<HTMLDivElement>(null);
+  const [count, setCount] = useState(0);
+
+  // Parallax on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!imageRef.current) return;
+      const offset = window.scrollY * 0.2;
+      imageRef.current.style.transform = `translateY(${offset}px)`;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Count-up animation for 65
+  useEffect(() => {
+    const duration = 1500;
+    const target = 65;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    const timeout = setTimeout(() => requestAnimationFrame(tick), 400);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <section className="pt-[105px] bg-[#fff8f0] min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto px-6 py-20 w-full">
@@ -19,17 +50,20 @@ export default function Hero() {
 
             {/* Tagline */}
             <div className="flex items-center gap-3 mb-6">
-              <MusicNote />
+              <span className="animate-wiggle">
+                <MusicNote />
+              </span>
               <p className="text-[50px] leading-tight text-[#00628e] font-[family-name:var(--font-birthstone-bounce)]">
                 Seit Generationen durch Musik verbunden
               </p>
             </div>
 
-            {/* Description */}
+            {/* Description with animated count */}
             <p className="text-[18px] text-[#252525] leading-relaxed mb-8">
-              Der Musikverein Hellmonsödt zählt derzeit 65 engagierte Mitglieder,
-              die mit Leidenschaft und Hingabe die kulturelle Vielfalt unserer
-              Gemeinde bereichern.
+              Der Musikverein Hellmonsödt zählt derzeit{" "}
+              <span className="font-bold text-[#cb6615]">{count}</span>{" "}
+              engagierte Mitglieder, die mit Leidenschaft und Hingabe die
+              kulturelle Vielfalt unserer Gemeinde bereichern.
             </p>
 
             {/* CTA */}
@@ -44,16 +78,21 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Right: image */}
+          {/* Right: image with parallax */}
           <div className="flex-1 relative w-full max-w-[680px]">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[3/2]">
-              <Image
-                src="/images/gruppenbild.jpg"
-                alt="Gruppenphoto Musikverein Hellmonsödt"
-                fill
-                className="object-cover"
-                priority
-              />
+              <div ref={imageRef} className="absolute inset-0 scale-110">
+                <Image
+                  src="/images/gruppenbild1.jpg"
+                  alt="Gruppenphoto Musikverein Hellmonsödt"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <span className="absolute bottom-2 right-2 text-[10px] text-white/80 bg-black/30 px-1.5 py-0.5 rounded pointer-events-none select-none z-10">
+                © Wilhelm Wolfmayr
+              </span>
             </div>
             {/* Logo badge */}
             <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl">

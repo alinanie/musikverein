@@ -14,12 +14,19 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Address */}
+          <address className="not-italic text-[14px] text-[#575756] leading-relaxed text-center md:text-left">
+            <p className="font-semibold text-[#252525]">Musikverein Hellmonsödt</p>
+            <p>Marktplatz 1</p>
+            <p>4202 Hellmonsödt</p>
+          </address>
+
           {/* Footer links */}
           <nav className="flex items-center gap-6">
-            <a href="#" className="text-[14px] text-[#575756] hover:text-[#00628e] transition-colors">
+            <a href="/impressum" className="text-[14px] text-[#575756] hover:text-[#00628e] transition-colors">
               Impressum
             </a>
-            <a href="#" className="text-[14px] text-[#575756] hover:text-[#00628e] transition-colors">
+            <a href="/datenschutz" className="text-[14px] text-[#575756] hover:text-[#00628e] transition-colors">
               Datenschutz
             </a>
           </nav>
