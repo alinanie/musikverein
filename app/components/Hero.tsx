@@ -40,10 +40,10 @@ export default function Hero() {
           <div className="flex-1 max-w-[542px]">
             {/* Headline */}
             <div className="mb-6">
-              <h1 className="text-[96px] font-bold leading-tight text-[#252525] font-[family-name:var(--font-palanquin)]">
+              <h1 className="text-[48px] min-[720px]:text-[96px] font-bold leading-tight text-[#252525] font-[family-name:var(--font-palanquin)]">
                 Musikverein
               </h1>
-              <h1 className="text-[96px] font-normal leading-tight text-[#cb6615] font-[family-name:var(--font-palanquin)]">
+              <h1 className="text-[48px] min-[720px]:text-[96px] font-normal leading-tight text-[#cb6615] font-[family-name:var(--font-palanquin)]">
                 Hellmonsödt
               </h1>
             </div>
@@ -53,7 +53,7 @@ export default function Hero() {
               <span className="animate-wiggle">
                 <MusicNote />
               </span>
-              <p className="text-[50px] leading-tight text-[#00628e] font-[family-name:var(--font-birthstone-bounce)]">
+              <p className="text-[28px] min-[720px]:text-[50px] leading-tight text-[#00628e] font-[family-name:var(--font-birthstone-bounce)]">
                 Seit Generationen durch Musik verbunden
               </p>
             </div>
@@ -95,8 +95,8 @@ export default function Hero() {
               </span>
             </div>
             {/* Logo badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl">
-              <Image src="/images/logo.svg" alt="Logo" width={80} height={90} />
+            <div className="absolute -bottom-4 -left-4 min-[720px]:-bottom-6 min-[720px]:-left-6 bg-white rounded-xl min-[720px]:rounded-2xl p-3 min-[720px]:p-4 shadow-xl">
+              <Image src="/images/logo.svg" alt="Logo" width={48} height={54} className="min-[720px]:w-[80px] min-[720px]:h-[90px]" />
             </div>
           </div>
         </div>

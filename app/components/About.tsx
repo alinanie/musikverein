@@ -23,7 +23,7 @@ export default function About() {
             {/* Quote */}
             <div className="flex items-center gap-3 mt-6">
               <MusicNote />
-              <p className="text-[40px] text-[#00628e] font-[family-name:var(--font-birthstone-bounce)] leading-tight">
+              <p className="text-[28px] min-[720px]:text-[40px] text-[#00628e] font-[family-name:var(--font-birthstone-bounce)] leading-tight">
                 Musik ist eine Sprache, die jeder versteht
               </p>
             </div>
