@@ -31,11 +31,12 @@ export default function Support() {
               <p className="text-[16px] text-[#575756] leading-relaxed mb-6 flex-1">
                 Du musst kein Instrument spielen, um ein Teil von uns zu sein. Als förderndes Mitglied trägst du dazu bei, dass unser Verein weiterhin für die Gemeinde musizieren kann.
               </p>
+              <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
               <a
                 href="mailto:mvhellmonsoedt@gmail.com"
                 className="inline-flex items-center gap-2 text-[#00628e] font-semibold text-[15px] hover:underline"
               >
-                <MailIcon />
+                <MailIcon color="#00628e" />
                 mvhellmonsoedt@gmail.com
               </a>
             </div>
@@ -53,6 +54,7 @@ export default function Support() {
               <p className="text-[16px] text-[#575756] leading-relaxed mb-6 flex-1">
                 Werden Sie Werbepartner des Musikvereins Hellmonsödt! Ob Inserat im Programmheft, Logo auf unserem Plakat oder Präsenz auf unserer Website – wir finden gemeinsam die passende Form der Zusammenarbeit.
               </p>
+              <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
               <a
                 href="mailto:mvhellmonsoedt@gmail.com"
                 className="inline-flex items-center gap-2 text-[#cb6615] font-semibold text-[15px] hover:underline"
@@ -75,11 +77,12 @@ export default function Support() {
               <p className="text-[16px] text-[#575756] leading-relaxed mb-6 flex-1">
                 Mit einer Spende unterstützt du direkt unsere Arbeit – von der Anschaffung neuer Noten bis zur Ausrüstung unserer Jugend. Jeder Beitrag zählt und kommt direkt der Musik zugute.
               </p>
+              <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
               <a
                 href="mailto:mvhellmonsoedt@gmail.com"
                 className="inline-flex items-center gap-2 text-[#00628e] font-semibold text-[15px] hover:underline"
               >
-                <MailIcon />
+                <MailIcon color="#00628e" />
                 mvhellmonsoedt@gmail.com
               </a>
             </div>
@@ -97,6 +100,7 @@ export default function Support() {
               <p className="text-[16px] text-[#575756] leading-relaxed mb-6 flex-1">
                 Ob beim Kuchenstand am Herbstfest oder als Marketenderin bei der Marschwertung – helfende Hände sind bei uns immer willkommen, ganz ohne Notenkenntnisse. Schau einfach vorbei oder melde dich bei uns!
               </p>
+              <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
               <a
                 href="https://www.facebook.com/MusikvereinHellmonsodt"
                 target="_blank"
