@@ -47,7 +47,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-[105px] flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
-          <Image src="/images/logo.svg" alt="Musikverein Hellmonsödt" width={50} height={53} />
+          <Image src="/images/logo.svg" alt="Musikverein Hellmonsödt" width={50} height={53} className="w-8 h-auto min-[720px]:w-[50px]" />
           <div className="leading-tight">
             <p className="text-sm font-semibold text-[#252525]">Musikverein</p>
             <p className="text-sm text-[#252525]">Hellmonsödt</p>
@@ -77,7 +77,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 text-[#252525]"
+          className="md:hidden p-2 text-[#252525] focus-visible:outline-2 focus-visible:outline-[#00628e] focus-visible:outline-offset-2 focus-visible:rounded"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >

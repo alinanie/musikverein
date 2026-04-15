@@ -54,7 +54,7 @@ export default function Events() {
                   fill
                   className="object-cover"
                 />
-                <span className="absolute bottom-1.5 right-2 text-[10px] text-white/80 bg-black/30 px-1.5 py-0.5 rounded pointer-events-none select-none">
+                <span className="absolute bottom-1.5 right-2 text-[11px] text-white/75 bg-black/35 px-1.5 py-0.5 rounded pointer-events-none select-none">
                   © Wilhelm Wolfmayr
                 </span>
               </div>

@@ -38,7 +38,7 @@ export default function Instruments() {
           <h2 className="text-[48px] font-bold text-[#252525] font-[family-name:var(--font-palanquin)]">
             Unsere Instrumente
           </h2>
-          <p className="text-[18px] text-[#252525] mt-2">Jedes Instrument hat seine Stimme. Zusammen ergeben sie unsere.</p>
+          <p className="text-[18px] text-[#252525] mt-2 max-w-[65ch]">Jedes Instrument hat seine Stimme. Zusammen ergeben sie unsere.</p>
         </div>
 
         <div className="flex flex-col gap-10">
