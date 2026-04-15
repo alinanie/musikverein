@@ -4,7 +4,9 @@
   --background: #fff8f0;
   --foreground: #252525;
   --primary: #00628e;
+  --primary-hover: #004f72;
   --accent: #cb6615;
+  --accent-hover: #b55a12;
   --warm-bg: #faf3ea;
   --gray-text: #575756;
 }
@@ -13,13 +15,20 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-warm-bg: var(--warm-bg);
   --color-gray-text: var(--gray-text);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 105px;
+}
+
+a, button {
+  transition: color 150ms ease, background-color 150ms ease, opacity 150ms ease;
 }
 
 @keyframes wiggle {
