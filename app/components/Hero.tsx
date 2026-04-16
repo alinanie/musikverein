@@ -83,7 +83,7 @@ export default function Hero() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] min-[720px]:aspect-[3/2]">
               <div ref={imageRef} className="absolute inset-0 scale-110">
                 <Image
-                  src="/images/gruppenbild1.jpg"
+                  src="/images/gruppenbild2.png"
                   alt="Gruppenphoto Musikverein Hellmonsödt"
                   fill
                   className="object-cover"
