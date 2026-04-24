@@ -13,7 +13,7 @@ function MailIcon({ color }: { color: string }) {
   );
 }
 
-export default function ObfuscatedMailLink({ color = "#00628e" }: { color?: string }) {
+export default function ObfuscatedMailLink({ color = "#00628e", className = "" }: { color?: string; className?: string }) {
   const [email, setEmail] = useState<string | null>(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function ObfuscatedMailLink({ color = "#00628e" }: { color?: stri
   if (!email) {
     // Placeholder while JS hasn't run yet – no email visible in HTML source
     return (
-      <span className="inline-flex items-center gap-2 font-semibold text-[15px]" style={{ color }}>
+      <span className={`inline-flex items-center gap-2 font-semibold text-[15px] ${className}`} style={{ color }}>
         <MailIcon color={color} />
         <span className="opacity-0 select-none">loading</span>
       </span>
@@ -33,7 +33,7 @@ export default function ObfuscatedMailLink({ color = "#00628e" }: { color?: stri
   return (
     <a
       href={`mailto:${email}`}
-      className="inline-flex items-center gap-2 font-semibold text-[15px] hover:underline"
+      className={`inline-flex items-center gap-2 font-semibold text-[15px] hover:underline ${className}`}
       style={{ color }}
     >
       <MailIcon color={color} />

@@ -85,12 +85,12 @@ export default function Support() {
         {/* Unified contact CTA */}
         <AnimateIn delay={100}>
           <div className="mt-12 bg-white rounded-2xl px-8 py-7 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-[17px] text-[#252525] font-medium">
+            <p className="text-[15px] sm:text-[17px] text-[#252525] font-medium">
               Klingt interessant?{" "}
               <span className="text-[#575756] font-normal">Wir freuen uns auf deine Nachricht!</span>
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
-              <ObfuscatedMailLink color="#00628e" />
+              <ObfuscatedMailLink color="#00628e" className="text-[13px] sm:text-[15px]" />
               <span className="hidden sm:block text-[#e8ddd0]">|</span>
               <a
                 href="https://www.facebook.com/MusikvereinHellmonsodt"
