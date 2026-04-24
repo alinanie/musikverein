@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 
-// "mvhellmonsoedt@gmail.com" stored as char codes – never appears as plain text in HTML
-const EMAIL_CODES = [109,118,104,101,108,108,109,111,110,115,111,101,100,116,64,103,109,97,105,108,46,99,111,109];
+// "musikvereinhellmonsoedt@gmail.com" stored as char codes – never appears as plain text in HTML
+const EMAIL_CODES = [109,117,115,105,107,118,101,114,101,105,110,104,101,108,108,109,111,110,115,111,101,100,116,64,103,109,97,105,108,46,99,111,109];
 
 function MailIcon({ color }: { color: string }) {
   return (
