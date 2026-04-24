@@ -46,8 +46,8 @@ export default function Impressum() {
             <h2 className="text-[22px] font-bold mb-3 font-[family-name:var(--font-palanquin)]">Kontakt</h2>
             <p className="text-[17px] leading-relaxed text-[#575756]">
               E-Mail:{" "}
-              <a href="mailto:mvhellmonsoedt@gmail.com" className="text-[#00628e] hover:underline">
-                mvhellmonsoedt@gmail.com
+              <a href="mailto:musikvereinhellmonsoedt@gmail.com" className="text-[#00628e] hover:underline">
+                musikvereinhellmonsoedt@gmail.com
               </a>
             </p>
           </section>

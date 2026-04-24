@@ -40,8 +40,8 @@ export default function Datenschutz() {
               Marktplatz 1<br />
               4202 Hellmonsödt<br />
               E-Mail:{" "}
-              <a href="mailto:mvhellmonsoedt@gmail.com" className="text-[#00628e] hover:underline">
-                mvhellmonsoedt@gmail.com
+              <a href="mailto:musikvereinhellmonsoedt@gmail.com" className="text-[#00628e] hover:underline">
+                musikvereinhellmonsoedt@gmail.com
               </a>
             </p>
           </section>
