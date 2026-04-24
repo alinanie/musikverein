@@ -3,8 +3,8 @@ import ObfuscatedMailLink from "./ObfuscatedMailLink";
 
 export default function Support() {
   return (
-    <section id="unterstuetzen" className="bg-[#fff8f0] py-16 min-[720px]:py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="unterstuetzen" className="bg-[#fff8f0] pt-16 min-[720px]:pt-24">
+      <div className="max-w-7xl mx-auto px-6 pb-16 min-[720px]:pb-24">
 
         {/* Headline */}
         <AnimateIn>
@@ -82,30 +82,36 @@ export default function Support() {
 
         </div>
 
-        {/* Unified contact CTA */}
-        <AnimateIn delay={100}>
-          <div className="mt-12 bg-white rounded-2xl px-8 py-7 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-[15px] sm:text-[17px] text-[#252525] font-medium">
-              Klingt interessant?{" "}
-              <span className="text-[#575756] font-normal">Wir freuen uns auf deine Nachricht!</span>
-            </p>
-            <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
-              <ObfuscatedMailLink color="#00628e" className="text-[13px] sm:text-[15px]" />
-              <span className="hidden sm:block text-[#e8ddd0]">|</span>
+      </div>
+
+      {/* Full-width contact CTA */}
+      <AnimateIn delay={100}>
+        <div className="bg-[#00628e] py-14">
+          <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center gap-6">
+            <div>
+              <p className="text-[28px] min-[720px]:text-[36px] font-bold text-white font-[family-name:var(--font-palanquin)] leading-tight">
+                Klingt interessant?
+              </p>
+              <p className="text-[17px] text-white/80 mt-2">
+                Wir freuen uns auf deine Nachricht!
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <ObfuscatedMailLink color="white" className="text-[15px] sm:text-[17px] bg-white/10 hover:bg-white/20 px-5 py-2.5 rounded-full" />
+              <span className="hidden sm:block text-white/30">|</span>
               <a
                 href="https://www.facebook.com/MusikvereinHellmonsodt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#cb6615] font-semibold text-[15px] hover:underline"
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white font-semibold text-[15px] sm:text-[17px]"
               >
                 <FacebookIcon />
                 Auf Facebook schreiben
               </a>
             </div>
           </div>
-        </AnimateIn>
-
-      </div>
+        </div>
+      </AnimateIn>
     </section>
   );
 }
