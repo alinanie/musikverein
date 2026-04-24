@@ -29,11 +29,9 @@ export default function Support() {
               <h3 className="text-[22px] font-bold text-[#252525] mb-3 font-[family-name:var(--font-palanquin)]">
                 Fördernde Mitgliedschaft
               </h3>
-              <p className="text-[16px] text-[#575756] leading-relaxed mb-6 flex-1">
+              <p className="text-[16px] text-[#575756] leading-relaxed flex-1">
                 Du musst kein Instrument spielen, um ein Teil von uns zu sein. Als förderndes Mitglied trägst du dazu bei, dass unser Verein weiterhin für die Gemeinde musizieren kann.
               </p>
-              <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
-              <ObfuscatedMailLink color="#00628e" />
             </div>
           </AnimateIn>
 
@@ -46,11 +44,9 @@ export default function Support() {
               <h3 className="text-[22px] font-bold text-[#252525] mb-3 font-[family-name:var(--font-palanquin)]">
                 Sponsoring & Werbepartner
               </h3>
-              <p className="text-[16px] text-[#575756] leading-relaxed mb-6 flex-1">
+              <p className="text-[16px] text-[#575756] leading-relaxed flex-1">
                 Werde Werbepartner des Musikvereins Hellmonsödt! Ob Inserat im Programmheft, Logo auf unserem Plakat oder Präsenz auf unserer Website – wir finden gemeinsam die passende Form der Zusammenarbeit.
               </p>
-              <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
-              <ObfuscatedMailLink color="#cb6615" />
             </div>
           </AnimateIn>
 
@@ -63,11 +59,9 @@ export default function Support() {
               <h3 className="text-[22px] font-bold text-[#252525] mb-3 font-[family-name:var(--font-palanquin)]">
                 Spenden
               </h3>
-              <p className="text-[16px] text-[#575756] leading-relaxed mb-6 flex-1">
+              <p className="text-[16px] text-[#575756] leading-relaxed flex-1">
                 Mit einer Spende unterstützt du direkt unsere Arbeit – von der Anschaffung neuer Noten bis zur Ausrüstung unserer Jugend. Jeder Beitrag zählt und kommt direkt der Musik zugute.
               </p>
-              <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
-              <ObfuscatedMailLink color="#00628e" />
             </div>
           </AnimateIn>
 
@@ -80,10 +74,24 @@ export default function Support() {
               <h3 className="text-[22px] font-bold text-[#252525] mb-3 font-[family-name:var(--font-palanquin)]">
                 Mithelfen
               </h3>
-              <p className="text-[16px] text-[#575756] leading-relaxed mb-6 flex-1">
+              <p className="text-[16px] text-[#575756] leading-relaxed flex-1">
                 Ob beim Kuchenstand am Herbstfest oder als Marketenderin bei der Marschwertung – helfende Hände sind bei uns immer willkommen, ganz ohne Notenkenntnisse. Schau einfach vorbei oder melde dich bei uns!
               </p>
-              <p className="text-[14px] text-[#575756] mb-2">Wir freuen uns über deine Nachricht</p>
+            </div>
+          </AnimateIn>
+
+        </div>
+
+        {/* Unified contact CTA */}
+        <AnimateIn delay={100}>
+          <div className="mt-12 bg-white rounded-2xl px-8 py-7 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-[17px] text-[#252525] font-medium">
+              Klingt interessant?{" "}
+              <span className="text-[#575756] font-normal">Wir freuen uns auf deine Nachricht!</span>
+            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
+              <ObfuscatedMailLink color="#00628e" />
+              <span className="hidden sm:block text-[#e8ddd0]">|</span>
               <a
                 href="https://www.facebook.com/MusikvereinHellmonsodt"
                 target="_blank"
@@ -94,15 +102,7 @@ export default function Support() {
                 Auf Facebook schreiben
               </a>
             </div>
-          </AnimateIn>
-
-        </div>
-
-        {/* Thank you note */}
-        <AnimateIn delay={100}>
-          <p className="text-center text-[16px] text-[#575756] mt-12 italic">
-            Der Musikverein Hellmonsödt dankt herzlich für jede Unterstützung! 🎶
-          </p>
+          </div>
         </AnimateIn>
 
       </div>
