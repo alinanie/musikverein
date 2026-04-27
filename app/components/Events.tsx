@@ -13,18 +13,21 @@ const events = [
     title: "Konzerte",
     description:
       "Jedes Jahr wird es neu geplant: Ein Kinderkonzert, ein Frühjahrskonzert oder ein Herbstkonzert. Auch abseits von Polka und Marsch zeigen wir unser Können z.B. mit Filmmusik oder Wiener Klassikern.",
+    credit: "© Wilhelm Wolfmayr",
   },
   {
     image: "/images/maibaum.png",
     title: "Dahoam und draußn",
     description:
       "Ob das Maibaumaufstellen, das Kürbisfest oder der Abschluss des Kindersommers: Wir geben den verschiedenen Feierlichkeiten unserer Gemeinde einen musikalischen Rahmen.",
+    credit: "© Wilhelm Wolfmayr",
   },
   {
     image: "/images/kirche1.jpg",
     title: "Begleitung kirchlicher Festlichkeiten",
     description:
       "Ob Kommunion, Firmung oder die musikalische Umrahmung durch unsere Turmbläser zur Weihnachtszeit: auch die kirchlichen Feste unserer Gemeinde begleiten wir mit viel Freude.",
+    credit: "© Wilhelm Wolfmayr",
   },
 ];
 
@@ -42,7 +45,7 @@ export default function Events() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          {events.map((event, i) => (
+          {events.map((event: { image: string; title: string; description: string; credit?: string }, i) => (
             <AnimateIn key={event.title} delay={i * 120}>
             <div
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
@@ -54,9 +57,11 @@ export default function Events() {
                   fill
                   className="object-cover"
                 />
-                <span className="absolute bottom-1.5 right-2 text-[11px] text-white/75 bg-black/35 px-1.5 py-0.5 rounded pointer-events-none select-none">
-                  © Wilhelm Wolfmayr
-                </span>
+                {event.credit && (
+                  <span className="absolute bottom-1.5 right-2 text-[11px] text-white/75 bg-black/35 px-1.5 py-0.5 rounded pointer-events-none select-none">
+                    {event.credit}
+                  </span>
+                )}
               </div>
               <div className="p-6">
                 <h3 className="text-[20px] font-bold text-[#252525] mb-3 font-[family-name:var(--font-palanquin)]">
