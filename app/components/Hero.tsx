@@ -17,10 +17,10 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Count-up animation for 65
+  // Count-up animation for 61
   useEffect(() => {
     const duration = 1500;
-    const target = 65;
+    const target = 61;
     const start = performance.now();
     const tick = (now: number) => {
       const progress = Math.min((now - start) / duration, 1);
@@ -91,7 +91,7 @@ export default function Hero() {
                 />
               </div>
               <span className="absolute bottom-2 right-2 text-[11px] text-white/75 bg-black/35 px-1.5 py-0.5 rounded pointer-events-none select-none z-10">
-                © Wilhelm Wolfmayr
+                © Sarah Kneidinger
               </span>
             </div>
             {/* Logo badge */}
