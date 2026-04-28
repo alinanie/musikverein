@@ -129,6 +129,13 @@ export default function Support() {
 
       </div>
 
+      {/* Thank you note */}
+      <AnimateIn delay={100}>
+        <p className="text-center text-[32px] min-[720px]:text-[42px] text-[#cb6615] font-[family-name:var(--font-birthstone-bounce)] mt-12 px-6">
+          Danke für jede Unterstützung ♥
+        </p>
+      </AnimateIn>
+
       {/* Full-width contact CTA */}
       <AnimateIn delay={100}>
         <div className="bg-[#00628e] py-14">
