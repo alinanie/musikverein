@@ -33,7 +33,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="pt-[105px] bg-[#fff8f0] min-h-screen flex items-center">
+    <section className="pt-[105px] bg-[#fff8f0]">
       <div className="max-w-7xl mx-auto px-6 py-20 w-full">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-16">
           {/* Left: text */}
