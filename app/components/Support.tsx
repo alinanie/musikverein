@@ -60,9 +60,29 @@ export default function Support() {
               <h3 className="text-[22px] font-bold text-[#252525] mb-3 font-[family-name:var(--font-palanquin)]">
                 Spenden
               </h3>
-              <p className="text-[16px] text-[#575756] leading-relaxed flex-1">
+              <p className="text-[16px] text-[#575756] leading-relaxed mb-5">
                 Mit einer Spende unterstützt du direkt unsere Arbeit – von der Anschaffung neuer Noten bis zur Ausrüstung unserer Jugend. Jeder Beitrag zählt und kommt direkt der Musik zugute.
               </p>
+              {/* Kontodaten */}
+              <div className="bg-[#f5f0ea] rounded-xl px-4 py-3 mb-5 text-[14px] text-[#252525] leading-relaxed">
+                <p className="font-semibold mb-1">Bankverbindung</p>
+                <p className="text-[#575756]">Musikverein Hellmonsödt</p>
+                <p className="font-mono tracking-wide text-[#252525] mt-1">AT07 3411 1000 0241 5081</p>
+              </div>
+              {/* QR Code */}
+              <div className="flex flex-col items-center gap-3 flex-1 justify-end">
+                <div className="relative w-36 h-36 rounded-xl overflow-hidden border border-[#e8ddd0]">
+                  <Image
+                    src="/images/qr-code-spenden.jpeg"
+                    alt="QR-Code Bankverbindung Musikverein Hellmonsödt"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <p className="text-[13px] text-[#575756] text-center leading-snug">
+                  QR-Code scannen zum direkten Überweisen
+                </p>
+              </div>
             </div>
           </AnimateIn>
 
