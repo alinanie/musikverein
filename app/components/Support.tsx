@@ -82,7 +82,7 @@ export default function Support() {
               <div className="flex flex-col items-center gap-3 mb-5 flex-1">
                 <div className="relative w-36 h-36 rounded-xl overflow-hidden border border-[#e8ddd0]">
                   <Image
-                    src="/images/qr-code-helfer.jpg"
+                    src="/images/qr-code-helfer.png"
                     alt="QR-Code WhatsApp Helfer-Gruppe"
                     fill
                     className="object-contain"
