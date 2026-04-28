@@ -131,7 +131,7 @@ export default function Support() {
 
       {/* Thank you note */}
       <AnimateIn delay={100}>
-        <p className="text-center text-[32px] min-[720px]:text-[42px] text-[#cb6615] font-[family-name:var(--font-birthstone-bounce)] mt-12 px-6">
+        <p className="text-center text-[32px] min-[720px]:text-[42px] text-[#cb6615] font-[family-name:var(--font-birthstone-bounce)] mt-12 mb-14 px-6">
           Danke für jede Unterstützung ♥
         </p>
       </AnimateIn>
