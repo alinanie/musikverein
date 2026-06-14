@@ -72,12 +72,13 @@ export default function Upcoming() {
         <AnimateIn>
           <div className="bg-white rounded-2xl overflow-hidden shadow-lg mb-16 flex flex-col lg:flex-row">
             {/* Poster */}
-            <div className="relative lg:w-[400px] shrink-0 aspect-[3/4] lg:aspect-auto">
+            <div className="lg:w-[360px] shrink-0">
               <Image
                 src={featured.image}
                 alt={featured.title}
-                fill
-                className="object-cover object-top"
+                width={1414}
+                height={2000}
+                className="w-full h-auto"
                 priority
               />
             </div>
