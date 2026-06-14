@@ -60,7 +60,7 @@ export default function Upcoming() {
         <AnimateIn>
           <div className="mb-14">
             <h2 className="text-[48px] font-bold text-[#252525] font-[family-name:var(--font-palanquin)]">
-              Veranstaltungen 2025
+              Kommende Veranstaltungen 2026
             </h2>
             <p className="text-[18px] text-[#575756] mt-2 max-w-[65ch]">
               Von Konzerten über Ausrückungen bis zu kirchlichen Festen – das ganze Jahr Musik in Hellmonsödt.
