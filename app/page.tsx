@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Upcoming from "./components/Upcoming";
 import About from "./components/About";
 import Instruments from "./components/Instruments";
 import Join from "./components/Join";
@@ -25,6 +26,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Upcoming />
         <About />
         <Instruments />
         <Events />
