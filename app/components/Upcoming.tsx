@@ -7,6 +7,7 @@ const featured = {
   date: "Freitag, 10. Juli",
   location: "Freibadfest Hellmonsödt",
   note: "Nur bei Schönwetter",
+  invite: "Ein Sommertag mit Musik, Sonne und guter Laune – kommt vorbei!",
   program: [
     { time: "ab 15:00 Uhr", label: "Weinbar" },
     { time: "ab 17:00 Uhr", label: "Dämmerschoppen" },
@@ -20,33 +21,36 @@ const categories = [
     title: "Auftritte",
     color: "#00628e",
     bg: "#e8f2f8",
+    icon: "🎶",
     events: [
-      { date: "20. Juni", name: "Sonnwendfeuer" },
-      { date: "5. Juli", name: "Pfarrfest" },
-      { date: "10. Juli", name: "Auftakt in den Sommer – Freibadfest" },
-      { date: "1. August", name: "Hellmonsödter Marktfestchen" },
-      { date: "13. September", name: "Abschluss des Kindersommers & Herbstfest" },
-      { date: "10. Oktober", name: "Oktoberfest" },
-      { date: "21. November", name: "Herbstkonzert" },
+      { date: "Sa. 20. Juni", name: "Sonnwendfeuer" },
+      { date: "So. 5. Juli", name: "Pfarrfest" },
+      { date: "Fr. 10. Juli", name: "Auftakt in den Sommer – Freibadfest" },
+      { date: "Sa. 1. August", name: "Hellmonsödter Marktfestchen" },
+      { date: "So. 13. September", name: "Abschluss des Kindersommers & Herbstfest" },
+      { date: "Sa. 10. Oktober", name: "Oktoberfest" },
+      { date: "Sa. 21. November", name: "Herbstkonzert" },
     ],
   },
   {
     title: "Bewerb",
     color: "#cb6615",
     bg: "#fdf0e6",
+    icon: "🏆",
     events: [
-      { date: "27. Juni", name: "Bezirksmusikfest Schenkenfelden – Marschwertung" },
-      { date: "7. November", name: "Konzertwertung" },
+      { date: "Sa. 27. Juni", name: "Bezirksmusikfest Schenkenfelden – Marschwertung" },
+      { date: "Sa. 7. November", name: "Konzertwertung" },
     ],
   },
   {
     title: "Kirchliche Feierlichkeiten",
     color: "#3d7a3a",
     bg: "#eaf3e9",
+    icon: "⛪",
     events: [
-      { date: "20. September", name: "Jubelhochzeiten" },
-      { date: "27. September", name: "Erntedankfest" },
-      { date: "1. November", name: "Allerheiligen" },
+      { date: "So. 20. September", name: "Jubelhochzeiten" },
+      { date: "So. 27. September", name: "Erntedankfest" },
+      { date: "So. 1. November", name: "Allerheiligen" },
     ],
   },
 ];
@@ -64,6 +68,9 @@ export default function Upcoming() {
             </h2>
             <p className="text-[18px] text-[#575756] mt-2 max-w-[65ch]">
               Von Konzerten über Ausrückungen bis zu kirchlichen Festen – das ganze Jahr Musik in Hellmonsödt.
+            </p>
+            <p className="text-[28px] text-[#cb6615] font-[family-name:var(--font-birthstone-bounce)] mt-3">
+              Kommt vorbei – wir spielen für euch!
             </p>
           </div>
         </AnimateIn>
@@ -99,6 +106,7 @@ export default function Upcoming() {
                   <p className="text-[18px] text-[#575756]">{featured.location}</p>
                 </div>
                 <p className="text-[14px] text-[#cb6615] font-medium mt-1">⛅ {featured.note}</p>
+                <p className="text-[17px] text-[#575756] italic mt-3 leading-snug">{featured.invite}</p>
               </div>
 
               {/* Program */}
@@ -122,13 +130,14 @@ export default function Upcoming() {
 
         {/* Event list by category */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {categories.map(({ title, color, bg, events }, i) => (
+          {categories.map(({ title, color, bg, icon, events }, i) => (
             <AnimateIn key={title} delay={i * 100}>
               <div className="bg-white rounded-2xl p-6 shadow-sm h-full">
                 <div
-                  className="inline-block text-[13px] font-bold px-3 py-1 rounded-full mb-5"
+                  className="inline-flex items-center gap-1.5 text-[13px] font-bold px-3 py-1 rounded-full mb-5"
                   style={{ background: bg, color }}
                 >
+                  <span>{icon}</span>
                   {title}
                 </div>
                 <ul className="flex flex-col gap-3">
