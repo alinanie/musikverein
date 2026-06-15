@@ -27,14 +27,6 @@ const leftCategories = [
       { date: "21. November, Samstag", name: "Herbstkonzert" },
     ],
   },
-  {
-    title: "Bewerbe",
-    pillBg: "#cb6615",
-    events: [
-      { date: "27. Juni, Samstag", name: "Bezirksmusikfest Schenkenfelden – Marschwertung" },
-      { date: "7. November, Samstag", name: "Konzertwertung" },
-    ],
-  },
 ];
 
 const rightCategories = [
@@ -45,6 +37,14 @@ const rightCategories = [
       { date: "20. September, Sonntag", name: "Jubelhochzeiten" },
       { date: "27. September, Sonntag", name: "Erntedankfest" },
       { date: "1. November, Sonntag", name: "Allerheiligen" },
+    ],
+  },
+  {
+    title: "Bewerbe",
+    pillBg: "#cb6615",
+    events: [
+      { date: "27. Juni, Samstag", name: "Bezirksmusikfest Schenkenfelden – Marschwertung" },
+      { date: "7. November, Samstag", name: "Konzertwertung" },
     ],
   },
 ];

@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 export const metadata: Metadata = {
   title: "Musikverein Hellmonsödt – Blasmusik aus dem Mühlviertel",
   description:
-    "Der Musikverein Hellmonsödt vereint 61 aktive MusikerInnen in Hellmonsödt, Oberösterreich. Konzerte, Ausrückungen, kirchliche Feste und Jugendförderung – Blasmusik, die verbindet.",
+    "Der Musikverein Hellmonsödt vereint 55 aktive MusikerInnen in Hellmonsödt, Oberösterreich. Konzerte, Ausrückungen, kirchliche Feste und Jugendförderung – Blasmusik, die verbindet.",
   alternates: {
     canonical: "/",
   },
