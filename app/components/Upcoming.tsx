@@ -107,7 +107,7 @@ export default function Upcoming() {
         <AnimateIn>
           <div className="mb-12">
             <h2 className="text-[40px] min-[720px]:text-[48px] font-bold text-[#252525] font-[family-name:var(--font-palanquin)]">
-              Unser Musikprogramm 2026
+              Unser Programm 2026
             </h2>
             <p className="text-[16px] text-[#575756] mt-2 max-w-[70ch]">
               Konzerte, musikalische Begleitung, kirchliche Feierlichkeiten und natürlich unsere Teilnahme an Bewerben. Hier sind alle aktuellen Termine des Musikvereins Hellmonsödt auf einen Blick.
