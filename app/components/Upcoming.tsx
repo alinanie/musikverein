@@ -10,6 +10,8 @@ const featured = {
   location: "Freibad Hellmonsödt",
   start: "ab 15:00 Uhr",
   program: ["Weinbar", "Dämmerschoppen", "DJ"],
+  note: "Nur bei Schönwetter",
+  admission: "Eintritt frei ab 15:00 Uhr",
   targetDate: new Date("2026-07-10"),
 };
 
@@ -18,10 +20,10 @@ const leftCategories = [
     title: "Auftritte",
     pillBg: "#4caf72",
     events: [
-      { date: "20. Juni, Samstag", name: "Sonnwendfeuer" },
-      { date: "5. Juli, Sonntag", name: "Pfarrfest" },
-      { date: "10. Juli, Freitag", name: "Auftakt in den Sommer – Freibadfest" },
-      { date: "1. August, Samstag", name: "Hellmonsödter Marktfestchen" },
+      { date: "20. Juni, Samstag",    name: "Sonnwendfeuer" },
+      { date: "5. Juli, Sonntag",     name: "Pfarrfest" },
+      { date: "10. Juli, Freitag",    name: "Auftakt in den Sommer – Freibadfest" },
+      { date: "1. August, Samstag",   name: "Hellmonsödter Marktfestchen" },
       { date: "13. September, Sonntag", name: "Abschluss des Kindersommers & Herbstfest" },
       { date: "10. Oktober, Samstag", name: "Oktoberfest" },
       { date: "21. November, Samstag", name: "Herbstkonzert" },
@@ -36,18 +38,32 @@ const rightCategories = [
     events: [
       { date: "20. September, Sonntag", name: "Jubelhochzeiten" },
       { date: "27. September, Sonntag", name: "Erntedankfest" },
-      { date: "1. November, Sonntag", name: "Allerheiligen" },
+      { date: "1. November, Sonntag",   name: "Allerheiligen" },
     ],
   },
   {
     title: "Bewerbe",
     pillBg: "#cb6615",
     events: [
-      { date: "27. Juni, Samstag", name: "Bezirksmusikfest Schenkenfelden – Marschwertung" },
+      { date: "27. Juni, Samstag",    name: "Bezirksmusikfest Schenkenfelden – Marschwertung" },
       { date: "7. November, Samstag", name: "Konzertwertung" },
     ],
   },
 ];
+
+const MONTHS: Record<string, number> = {
+  Januar: 0, Februar: 1, März: 2, April: 3, Mai: 4, Juni: 5,
+  Juli: 6, August: 7, September: 8, Oktober: 9, November: 10, Dezember: 11,
+};
+
+function isPast(dateStr: string): boolean {
+  const match = dateStr.match(/(\d+)\.\s+(\w+)/);
+  if (!match) return false;
+  const eventDate = new Date(2026, MONTHS[match[2]] ?? 0, parseInt(match[1]));
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return eventDate < today;
+}
 
 function useCountdown(targetDate: Date) {
   const [days, setDays] = useState<number | null>(null);
@@ -85,12 +101,22 @@ function CategoryBlock({
         <div className="flex-1 border-t-2 border-dashed border-[#c4d4e0]" />
       </div>
       <ul className="flex flex-col gap-3">
-        {events.map(({ date, name }) => (
-          <li key={date + name} className="grid grid-cols-2 gap-2 items-start">
-            <span className="text-[13px] text-[#575756] leading-snug">{date}</span>
-            <span className="text-[14px] font-bold text-[#252525] leading-snug">{name}</span>
-          </li>
-        ))}
+        {events.map(({ date, name }) => {
+          const past = isPast(date);
+          return (
+            <li
+              key={date + name}
+              className={`grid grid-cols-2 gap-2 items-start transition-opacity ${past ? "opacity-35" : ""}`}
+            >
+              <span className={`text-[13px] leading-snug ${past ? "line-through text-[#9ba8b4]" : "text-[#575756]"}`}>
+                {date}
+              </span>
+              <span className={`text-[14px] font-bold leading-snug ${past ? "line-through text-[#9ba8b4]" : "text-[#252525]"}`}>
+                {name}
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
@@ -98,6 +124,7 @@ function CategoryBlock({
 
 export default function Upcoming() {
   const daysLeft = useCountdown(featured.targetDate);
+  const countdownBg = daysLeft !== null && daysLeft <= 7 ? "#c0392b" : "#cb6615";
 
   return (
     <section className="bg-[#e6eff7] py-16 min-[720px]:py-24">
@@ -133,7 +160,7 @@ export default function Upcoming() {
                 />
               </div>
 
-              {/* Right column: title + info + countdown */}
+              {/* Right column: title + info + badges + countdown */}
               <div className="flex flex-col flex-1 p-6 gap-5">
                 {/* Title */}
                 <div className="flex items-start gap-3">
@@ -144,25 +171,40 @@ export default function Upcoming() {
                 </div>
 
                 {/* Info table */}
-                <table className="text-[15px] w-full">
-                  <tbody>
-                    {[
-                      { label: "Wann", value: featured.date },
-                      { label: "Wo", value: featured.location },
-                      { label: "Beginn", value: featured.start },
-                      { label: "Was", value: featured.program.join(", ") },
-                    ].map(({ label, value }) => (
-                      <tr key={label} className="align-top">
-                        <td className="text-[#575756] pr-5 pb-3 whitespace-nowrap">{label}</td>
-                        <td className="font-bold text-[#252525] pb-3">{value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <div>
+                  <table className="text-[15px] w-full">
+                    <tbody>
+                      {[
+                        { label: "Wann",   value: featured.date },
+                        { label: "Wo",     value: featured.location },
+                        { label: "Beginn", value: featured.start },
+                        { label: "Was",    value: featured.program.join(", ") },
+                      ].map(({ label, value }) => (
+                        <tr key={label} className="align-top">
+                          <td className="text-[#575756] pr-5 pb-3 whitespace-nowrap">{label}</td>
+                          <td className="font-bold text-[#252525] pb-3">{value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+
+                  {/* Note + admission badges */}
+                  <div className="flex flex-wrap gap-2 mt-1">
+                    <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#575756] bg-[#f0f4f8] px-3 py-1.5 rounded-full">
+                      ⛅ {featured.note}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-white bg-[#3d8a3a] px-3 py-1.5 rounded-full">
+                      🎟 {featured.admission}
+                    </span>
+                  </div>
+                </div>
 
                 {/* Countdown */}
                 {daysLeft !== null && (
-                  <div className="bg-[#cb6615] rounded-2xl p-5 text-white text-center mt-auto">
+                  <div
+                    className="rounded-2xl p-5 text-white text-center mt-auto transition-colors duration-700"
+                    style={{ background: countdownBg }}
+                  >
                     {daysLeft > 0 ? (
                       <>
                         <p className="text-[11px] font-bold uppercase tracking-widest opacity-75 mb-1">Nur noch</p>
@@ -184,13 +226,11 @@ export default function Upcoming() {
                 Weitere Veranstaltungen
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
-                {/* Left: Auftritte + Bewerbe */}
                 <div className="flex flex-col gap-8">
                   {leftCategories.map((cat) => (
                     <CategoryBlock key={cat.title} {...cat} />
                   ))}
                 </div>
-                {/* Right: Kirchliche */}
                 <div className="flex flex-col gap-8">
                   {rightCategories.map((cat) => (
                     <CategoryBlock key={cat.title} {...cat} />
