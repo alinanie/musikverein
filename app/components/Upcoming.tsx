@@ -110,8 +110,7 @@ export default function Upcoming() {
               Unser Musikprogramm 2026
             </h2>
             <p className="text-[16px] text-[#575756] mt-2 max-w-[70ch]">
-              Konzerte, musikalische Begleitung, kirchliche Feierlichkeiten und natürlich unsere Teilnahme an Bewerben.<br />
-              Hier sind alle aktuellen Termine des Musikvereins Hellmonsödt auf einen Blick.
+              Konzerte, musikalische Begleitung, kirchliche Feierlichkeiten und natürlich unsere Teilnahme an Bewerben. Hier sind alle aktuellen Termine des Musikvereins Hellmonsödt auf einen Blick.
             </p>
           </div>
         </AnimateIn>
@@ -123,13 +122,13 @@ export default function Upcoming() {
           <AnimateIn>
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col sm:flex-row">
               {/* Poster */}
-              <div className="sm:w-[45%] shrink-0">
+              <div className="sm:w-[45%] shrink-0 p-5">
                 <Image
                   src={featured.image}
                   alt={featured.title}
                   width={1414}
                   height={2000}
-                  className="w-full h-auto"
+                  className="w-full h-auto rounded-xl"
                   priority
                 />
               </div>
