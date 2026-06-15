@@ -148,8 +148,8 @@ export default function Upcoming() {
           {/* Featured event card */}
           <AnimateIn>
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col sm:flex-row">
-              {/* Poster */}
-              <div className="sm:w-[45%] shrink-0 p-5">
+              {/* Poster + weather note */}
+              <div className="sm:w-[45%] shrink-0 p-5 flex flex-col gap-3">
                 <Image
                   src={featured.image}
                   alt={featured.title}
@@ -158,9 +158,12 @@ export default function Upcoming() {
                   className="w-full h-auto rounded-xl"
                   priority
                 />
+                <span className="inline-flex items-center justify-center gap-1.5 text-[13px] font-medium text-[#575756] bg-[#f0f4f8] px-3 py-1.5 rounded-full">
+                  ⛅ {featured.note}
+                </span>
               </div>
 
-              {/* Right column: title + info + badges + countdown */}
+              {/* Right column: title + info + admission + countdown */}
               <div className="flex flex-col flex-1 p-6 gap-5">
                 {/* Title */}
                 <div className="flex items-start gap-3">
@@ -188,15 +191,11 @@ export default function Upcoming() {
                     </tbody>
                   </table>
 
-                  {/* Note + admission badges */}
-                  <div className="flex flex-wrap gap-2 mt-1">
-                    <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[#575756] bg-[#f0f4f8] px-3 py-1.5 rounded-full">
-                      ⛅ {featured.note}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-white bg-[#3d8a3a] px-3 py-1.5 rounded-full">
-                      🎟 {featured.admission}
-                    </span>
-                  </div>
+                  {/* Admission badge */}
+                  <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-white bg-[#3d8a3a] px-3 py-1.5 rounded-full mt-1">
+                    <TicketIcon />
+                    {featured.admission}
+                  </span>
                 </div>
 
                 {/* Countdown */}
@@ -243,6 +242,15 @@ export default function Upcoming() {
         </div>
       </div>
     </section>
+  );
+}
+
+function TicketIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/>
+      <path d="M13 5v2M13 17v2M13 11v2"/>
+    </svg>
   );
 }
 
