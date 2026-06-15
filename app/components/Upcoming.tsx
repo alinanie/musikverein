@@ -121,61 +121,59 @@ export default function Upcoming() {
 
           {/* Featured event card */}
           <AnimateIn>
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
-              {/* Card header */}
-              <div className="flex items-center gap-3 mb-5">
-                <CalendarIcon />
-                <h3 className="text-[30px] text-[#cb6615] font-[family-name:var(--font-birthstone-bounce)]">
-                  {featured.title}
-                </h3>
+            <div className="bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col sm:flex-row">
+              {/* Poster */}
+              <div className="sm:w-[45%] shrink-0">
+                <Image
+                  src={featured.image}
+                  alt={featured.title}
+                  width={1414}
+                  height={2000}
+                  className="w-full h-auto"
+                  priority
+                />
               </div>
 
-              {/* Poster + details */}
-              <div className="flex flex-col sm:flex-row gap-5">
-                {/* Poster */}
-                <div className="sm:w-[180px] shrink-0 rounded-xl overflow-hidden">
-                  <Image
-                    src={featured.image}
-                    alt={featured.title}
-                    width={1414}
-                    height={2000}
-                    className="w-full h-auto"
-                    priority
-                  />
+              {/* Right column: title + info + countdown */}
+              <div className="flex flex-col flex-1 p-6 gap-5">
+                {/* Title */}
+                <div className="flex items-start gap-3">
+                  <div className="shrink-0 mt-1"><CalendarIcon /></div>
+                  <h3 className="text-[28px] min-[900px]:text-[34px] text-[#cb6615] font-[family-name:var(--font-birthstone-bounce)] leading-tight">
+                    {featured.title}
+                  </h3>
                 </div>
 
-                {/* Info + countdown */}
-                <div className="flex flex-col flex-1 gap-5">
-                  <table className="text-[15px] w-full">
-                    <tbody>
-                      {[
-                        { label: "Wann", value: featured.date },
-                        { label: "Wo", value: featured.location },
-                        { label: "Beginn", value: featured.start },
-                        { label: "Was", value: featured.program.join(", ") },
-                      ].map(({ label, value }) => (
-                        <tr key={label} className="align-top">
-                          <td className="text-[#575756] pr-5 pb-3 whitespace-nowrap">{label}</td>
-                          <td className="font-bold text-[#252525] pb-3">{value}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                {/* Info table */}
+                <table className="text-[15px] w-full">
+                  <tbody>
+                    {[
+                      { label: "Wann", value: featured.date },
+                      { label: "Wo", value: featured.location },
+                      { label: "Beginn", value: featured.start },
+                      { label: "Was", value: featured.program.join(", ") },
+                    ].map(({ label, value }) => (
+                      <tr key={label} className="align-top">
+                        <td className="text-[#575756] pr-5 pb-3 whitespace-nowrap">{label}</td>
+                        <td className="font-bold text-[#252525] pb-3">{value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
 
-                  {/* Countdown */}
-                  {daysLeft !== null && (
-                    <div className="bg-[#cb6615] rounded-2xl p-5 text-white text-center">
-                      {daysLeft > 0 ? (
-                        <>
-                          <p className="text-[11px] font-bold uppercase tracking-widest opacity-75 mb-1">Nur noch</p>
-                          <p className="text-[44px] font-bold leading-none">{daysLeft} Tage</p>
-                        </>
-                      ) : (
-                        <p className="text-[24px] font-bold">Heute ist es soweit!</p>
-                      )}
-                    </div>
-                  )}
-                </div>
+                {/* Countdown */}
+                {daysLeft !== null && (
+                  <div className="bg-[#cb6615] rounded-2xl p-5 text-white text-center mt-auto">
+                    {daysLeft > 0 ? (
+                      <>
+                        <p className="text-[11px] font-bold uppercase tracking-widest opacity-75 mb-1">Nur noch</p>
+                        <p className="text-[48px] font-bold leading-none">{daysLeft} Tage</p>
+                      </>
+                    ) : (
+                      <p className="text-[24px] font-bold">Heute ist es soweit!</p>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </AnimateIn>
