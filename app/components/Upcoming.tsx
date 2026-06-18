@@ -98,17 +98,8 @@ export default function Upcoming() {
                         </div>
                       </div>
 
-                      {/* Arrow connector */}
-                      <div className="hidden sm:flex items-center justify-center bg-white w-10 shrink-0 border-l border-r border-[#e8f0f5]">
-                        <ArrowRightIcon />
-                      </div>
-                      {/* Mobile: down arrow */}
-                      <div className="flex sm:hidden items-center justify-center bg-white h-8 border-t border-[#e8f0f5]">
-                        <ArrowDownIcon />
-                      </div>
-
                       {/* Detail card */}
-                      <div className="bg-white rounded-2xl sm:rounded-l-none shadow-sm flex-1 p-6 flex flex-col gap-4">
+                      <div className="bg-white rounded-2xl sm:rounded-l-none shadow-sm flex-1 p-6 flex flex-col gap-4 border-l border-[#e8f0f5]">
                         {/* Countdown */}
                         {daysLeft !== null && (
                           <div>
@@ -184,22 +175,6 @@ export default function Upcoming() {
 
       </div>
     </section>
-  );
-}
-
-function ArrowRightIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cb6615" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-function ArrowDownIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cb6615" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 5v14M6 13l6 6 6-6" />
-    </svg>
   );
 }
 
