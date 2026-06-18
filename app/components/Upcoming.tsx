@@ -3,74 +3,45 @@ import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 import { useEffect, useState } from "react";
 
-const featured = {
+const featuredMeta = {
   image: "/images/freibadfest.jpg",
-  title: "AufTakt in den Sommer",
-  date: "Freitag, 10. Juli",
-  location: "Freibad Hellmonsödt",
-  start: "ab 15:00 Uhr",
-  program: ["Weinbar", "Dämmerschoppen", "DJ"],
   note: "Nur bei Schönwetter",
   admission: "Eintritt frei ab 15:00 Uhr",
+  details: [
+    { label: "Wann",   value: "Freitag, 10. Juli" },
+    { label: "Wo",     value: "Freibad Hellmonsödt" },
+    { label: "Beginn", value: "ab 15:00 Uhr" },
+    { label: "Was",    value: "Weinbar, Dämmerschoppen, DJ" },
+  ],
   targetDate: new Date("2026-07-10"),
 };
 
-const leftCategories = [
-  {
-    title: "Auftritte",
-    pillBg: "#4caf72",
-    events: [
-      { date: "20. Juni, Samstag",    name: "Sonnwendfeuer" },
-      { date: "5. Juli, Sonntag",     name: "Pfarrfest" },
-      { date: "10. Juli, Freitag",    name: "Auftakt in den Sommer – Freibadfest" },
-      { date: "1. August, Samstag",   name: "Hellmonsödter Marktfestchen" },
-      { date: "13. September, Sonntag", name: "Abschluss des Kindersommers & Herbstfest" },
-      { date: "10. Oktober, Samstag", name: "Oktoberfest" },
-      { date: "21. November, Samstag", name: "Herbstkonzert" },
-    ],
-  },
+const events = [
+  { date: "20. Juni, Samstag",      isoDate: "2026-06-20", name: "Sonnwendfeuer" },
+  { date: "27. Juni, Samstag",      isoDate: "2026-06-27", name: "Bezirksmusikfest Schenkenfelden – Marschwertung" },
+  { date: "5. Juli, Sonntag",       isoDate: "2026-07-05", name: "Pfarrfest" },
+  { date: "10. Juli, Freitag",      isoDate: "2026-07-10", name: "Auftakt in den Sommer – Freibadfest", featured: true },
+  { date: "1. August, Samstag",     isoDate: "2026-08-01", name: "Hellmonsödter Marktfestchen" },
+  { date: "13. September, Sonntag", isoDate: "2026-09-13", name: "Abschluss des Kindersommers & Herbstfest" },
+  { date: "20. September, Sonntag", isoDate: "2026-09-20", name: "Jubelhochzeiten" },
+  { date: "27. September, Sonntag", isoDate: "2026-09-27", name: "Erntedankfest" },
+  { date: "10. Oktober, Samstag",   isoDate: "2026-10-10", name: "Oktoberfest" },
+  { date: "1. November, Sonntag",   isoDate: "2026-11-01", name: "Allerheiligen" },
+  { date: "7. November, Samstag",   isoDate: "2026-11-07", name: "Konzertwertung" },
+  { date: "21. November, Samstag",  isoDate: "2026-11-21", name: "Herbstkonzert" },
 ];
 
-const rightCategories = [
-  {
-    title: "Kirchliche Feierlichkeiten",
-    pillBg: "#7c6bc9",
-    events: [
-      { date: "20. September, Sonntag", name: "Jubelhochzeiten" },
-      { date: "27. September, Sonntag", name: "Erntedankfest" },
-      { date: "1. November, Sonntag",   name: "Allerheiligen" },
-    ],
-  },
-  {
-    title: "Bewerbe",
-    pillBg: "#cb6615",
-    events: [
-      { date: "27. Juni, Samstag",    name: "Bezirksmusikfest Schenkenfelden – Marschwertung" },
-      { date: "7. November, Samstag", name: "Konzertwertung" },
-    ],
-  },
-];
-
-const MONTHS: Record<string, number> = {
-  Januar: 0, Februar: 1, März: 2, April: 3, Mai: 4, Juni: 5,
-  Juli: 6, August: 7, September: 8, Oktober: 9, November: 10, Dezember: 11,
-};
-
-function isPast(dateStr: string): boolean {
-  const match = dateStr.match(/(\d+)\.\s+(\w+)/);
-  if (!match) return false;
-  const eventDate = new Date(2026, MONTHS[match[2]] ?? 0, parseInt(match[1]));
+function isPast(isoDate: string): boolean {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  return eventDate < today;
+  return new Date(isoDate) < today;
 }
 
 function useCountdown(targetDate: Date) {
   const [days, setDays] = useState<number | null>(null);
   useEffect(() => {
     const calc = () => {
-      const now = new Date();
-      const diff = targetDate.getTime() - now.getTime();
+      const diff = targetDate.getTime() - new Date().getTime();
       setDays(Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24))));
     };
     calc();
@@ -80,51 +51,9 @@ function useCountdown(targetDate: Date) {
   return days;
 }
 
-function CategoryBlock({
-  title,
-  pillBg,
-  events,
-}: {
-  title: string;
-  pillBg: string;
-  events: { date: string; name: string }[];
-}) {
-  return (
-    <div>
-      <div className="flex items-center gap-3 mb-4">
-        <span
-          className="text-[13px] font-bold text-white px-3 py-1 rounded-full whitespace-nowrap shrink-0"
-          style={{ background: pillBg }}
-        >
-          {title}
-        </span>
-        <div className="flex-1 border-t-2 border-dashed border-[#c4d4e0]" />
-      </div>
-      <ul className="flex flex-col gap-3">
-        {events.map(({ date, name }) => {
-          const past = isPast(date);
-          return (
-            <li
-              key={date + name}
-              className={`grid grid-cols-2 gap-2 items-start transition-opacity ${past ? "opacity-35" : ""}`}
-            >
-              <span className={`text-[13px] leading-snug ${past ? "line-through text-[#9ba8b4]" : "text-[#575756]"}`}>
-                {date}
-              </span>
-              <span className={`text-[14px] font-bold leading-snug ${past ? "line-through text-[#9ba8b4]" : "text-[#252525]"}`}>
-                {name}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
-
 export default function Upcoming() {
-  const daysLeft = useCountdown(featured.targetDate);
-  const countdownBg = daysLeft !== null && daysLeft <= 7 ? "#c0392b" : "#cb6615";
+  const daysLeft = useCountdown(featuredMeta.targetDate);
+  const countdownBg = daysLeft !== null && daysLeft <= 7 ? "#c0392b" : "#3d8a3a";
 
   return (
     <section className="bg-[#e6eff7] py-16 min-[720px]:py-24">
@@ -142,104 +71,104 @@ export default function Upcoming() {
           </div>
         </AnimateIn>
 
-        {/* Main grid: featured card + event categories */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        {/* Main layout: poster left, event list right */}
+        <AnimateIn>
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
 
-          {/* Featured event card */}
-          <AnimateIn>
-            <div className="bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col sm:flex-row">
-              {/* Poster + weather note */}
-              <div className="sm:w-[45%] shrink-0 p-5 flex flex-col gap-3">
-                <Image
-                  src={featured.image}
-                  alt={featured.title}
-                  width={1414}
-                  height={2000}
-                  className="w-full h-auto rounded-xl"
-                  priority
-                />
-                <span className="inline-flex items-center justify-center gap-1.5 text-[13px] font-medium text-[#575756] bg-[#f0f4f8] px-3 py-1.5 rounded-full">
-                  ⛅ {featured.note}
-                </span>
-              </div>
-
-              {/* Right column: title + info + admission + countdown */}
-              <div className="flex flex-col flex-1 p-6 gap-5">
-                {/* Title */}
-                <div className="flex items-start gap-3">
-                  <div className="shrink-0 mt-1"><CalendarIcon /></div>
-                  <h3 className="text-[28px] min-[900px]:text-[34px] text-[#cb6615] font-[family-name:var(--font-birthstone-bounce)] leading-tight">
-                    {featured.title}
-                  </h3>
-                </div>
-
-                {/* Info table */}
-                <div>
-                  <table className="text-[15px] w-full">
-                    <tbody>
-                      {[
-                        { label: "Wann",   value: featured.date },
-                        { label: "Wo",     value: featured.location },
-                        { label: "Beginn", value: featured.start },
-                        { label: "Was",    value: featured.program.join(", ") },
-                      ].map(({ label, value }) => (
-                        <tr key={label} className="align-top">
-                          <td className="text-[#575756] pr-5 pb-3 whitespace-nowrap">{label}</td>
-                          <td className="font-bold text-[#252525] pb-3">{value}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-
-                  {/* Admission badge */}
-                  <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-white bg-[#3d8a3a] px-3 py-1.5 rounded-full mt-1">
-                    <TicketIcon />
-                    {featured.admission}
-                  </span>
-                </div>
-
-                {/* Countdown */}
-                {daysLeft !== null && (
-                  <div
-                    className="rounded-2xl p-5 text-white text-center mt-auto transition-colors duration-700"
-                    style={{ background: countdownBg }}
-                  >
-                    {daysLeft > 0 ? (
-                      <>
-                        <p className="text-[11px] font-bold uppercase tracking-widest opacity-75 mb-1">Nur noch</p>
-                        <p className="text-[48px] font-bold leading-none">{daysLeft} Tage</p>
-                      </>
-                    ) : (
-                      <p className="text-[24px] font-bold">Heute ist es soweit!</p>
-                    )}
-                  </div>
-                )}
-              </div>
+            {/* Poster column */}
+            <div className="w-full lg:w-[320px] xl:w-[360px] shrink-0 flex flex-col gap-3">
+              <Image
+                src={featuredMeta.image}
+                alt="Auftakt in den Sommer – Freibadfest"
+                width={1414}
+                height={2000}
+                className="w-full h-auto rounded-2xl shadow-md"
+                priority
+              />
+              <span className="inline-flex items-center justify-center gap-1.5 text-[13px] font-medium text-[#575756] bg-white px-3 py-1.5 rounded-full shadow-sm">
+                ⛅ {featuredMeta.note}
+              </span>
             </div>
-          </AnimateIn>
 
-          {/* Weitere Veranstaltungen */}
-          <AnimateIn delay={100}>
-            <div>
-              <h3 className="text-[22px] font-bold text-[#252525] mb-6 font-[family-name:var(--font-palanquin)]">
-                Weitere Veranstaltungen
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
-                <div className="flex flex-col gap-8">
-                  {leftCategories.map((cat) => (
-                    <CategoryBlock key={cat.title} {...cat} />
-                  ))}
-                </div>
-                <div className="flex flex-col gap-8">
-                  {rightCategories.map((cat) => (
-                    <CategoryBlock key={cat.title} {...cat} />
-                  ))}
-                </div>
-              </div>
+            {/* Event list */}
+            <div className="flex-1 min-w-0">
+              <ul>
+                {events.map((event) => {
+                  const past = isPast(event.isoDate);
+                  const featured = event.featured;
+
+                  return (
+                    <li key={event.isoDate}>
+                      {/* Countdown badge above featured event */}
+                      {featured && daysLeft !== null && (
+                        <div className="mb-3 mt-1">
+                          <span
+                            className="inline-flex items-center gap-2 text-[13px] font-bold text-white px-4 py-1.5 rounded-full"
+                            style={{ background: countdownBg }}
+                          >
+                            {daysLeft > 0 ? `Nur noch ${daysLeft} Tage` : "Heute ist es soweit!"}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Event row */}
+                      <div
+                        className={`flex gap-4 items-baseline py-3 border-b border-[#d0dde8] ${
+                          past ? "opacity-35" : ""
+                        }`}
+                      >
+                        <span
+                          className={`text-[14px] shrink-0 w-44 ${
+                            featured
+                              ? "text-[#cb6615] font-semibold"
+                              : past
+                              ? "line-through text-[#9ba8b4]"
+                              : "text-[#575756]"
+                          }`}
+                        >
+                          {event.date}
+                        </span>
+                        <span
+                          className={`text-[15px] font-bold leading-snug ${
+                            featured
+                              ? "text-[#cb6615] text-[18px]"
+                              : past
+                              ? "line-through text-[#9ba8b4]"
+                              : "text-[#252525]"
+                          }`}
+                        >
+                          {event.name}
+                        </span>
+                      </div>
+
+                      {/* Featured event detail card */}
+                      {featured && (
+                        <div className="bg-white rounded-2xl p-5 mt-3 mb-4 shadow-sm">
+                          <table className="text-[15px] w-full mb-4">
+                            <tbody>
+                              {featuredMeta.details.map(({ label, value }) => (
+                                <tr key={label} className="align-top">
+                                  <td className="text-[#575756] pr-5 pb-3 whitespace-nowrap">{label}</td>
+                                  <td className="font-bold text-[#252525] pb-3">{value}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                          <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-white bg-[#3d8a3a] px-3 py-1.5 rounded-full">
+                            <TicketIcon />
+                            {featuredMeta.admission}
+                          </span>
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-          </AnimateIn>
 
-        </div>
+          </div>
+        </AnimateIn>
+
       </div>
     </section>
   );
@@ -250,17 +179,6 @@ function TicketIcon() {
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
       <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/>
       <path d="M13 5v2M13 17v2M13 11v2"/>
-    </svg>
-  );
-}
-
-function CalendarIcon() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00628e" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-      <line x1="16" y1="2" x2="16" y2="6" />
-      <line x1="8" y1="2" x2="8" y2="6" />
-      <line x1="3" y1="10" x2="21" y2="10" />
     </svg>
   );
 }
