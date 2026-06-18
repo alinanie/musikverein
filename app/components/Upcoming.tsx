@@ -57,7 +57,7 @@ export default function Upcoming() {
 
   return (
     <section className="bg-[#e6eff7] py-16 min-[720px]:py-24">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
 
         {/* Section header */}
         <AnimateIn>
@@ -71,106 +71,135 @@ export default function Upcoming() {
           </div>
         </AnimateIn>
 
-        {/* Main layout: poster left, event list right */}
+        {/* Event list */}
         <AnimateIn>
-          <div className="flex flex-col lg:flex-row gap-8 items-start">
+          <ul>
+            {events.map((event) => {
+              const past = isPast(event.isoDate);
 
-            {/* Poster column */}
-            <div className="w-full lg:w-[320px] xl:w-[360px] shrink-0 flex flex-col gap-3">
-              <Image
-                src={featuredMeta.image}
-                alt="Auftakt in den Sommer – Freibadfest"
-                width={1414}
-                height={2000}
-                className="w-full h-auto rounded-2xl shadow-md"
-                priority
-              />
-              <span className="inline-flex items-center justify-center gap-1.5 text-[13px] font-medium text-[#575756] bg-white px-3 py-1.5 rounded-full shadow-sm">
-                ⛅ {featuredMeta.note}
-              </span>
-            </div>
+              if (event.featured) {
+                return (
+                  <li key={event.isoDate}>
+                    {/* Connected poster + detail cards */}
+                    <div className="my-6 flex flex-col sm:flex-row items-stretch gap-0">
 
-            {/* Event list */}
-            <div className="flex-1 min-w-0">
-              <ul>
-                {events.map((event) => {
-                  const past = isPast(event.isoDate);
-                  const featured = event.featured;
-
-                  return (
-                    <li key={event.isoDate}>
-                      {/* Countdown badge above featured event */}
-                      {featured && daysLeft !== null && (
-                        <div className="mb-3 mt-1">
-                          <span
-                            className="inline-flex items-center gap-2 text-[13px] font-bold text-white px-4 py-1.5 rounded-full"
-                            style={{ background: countdownBg }}
-                          >
-                            {daysLeft > 0 ? `Nur noch ${daysLeft} Tage` : "Heute ist es soweit!"}
-                          </span>
+                      {/* Poster card */}
+                      <div className="bg-white rounded-2xl sm:rounded-r-none shadow-sm sm:w-[220px] xl:w-[260px] shrink-0 flex flex-col overflow-hidden">
+                        <Image
+                          src={featuredMeta.image}
+                          alt="Auftakt in den Sommer – Freibadfest"
+                          width={1414}
+                          height={2000}
+                          className="w-full h-auto"
+                          priority
+                        />
+                        <div className="flex items-center justify-center gap-1.5 py-3 px-4 text-[13px] text-[#575756] font-medium">
+                          ⛅ {featuredMeta.note}
                         </div>
-                      )}
+                      </div>
 
-                      {/* Event row */}
-                      <div
-                        className={`flex gap-4 items-baseline py-3 border-b border-[#d0dde8] ${
-                          past ? "opacity-35" : ""
-                        }`}
-                      >
-                        <span
-                          className={`text-[14px] shrink-0 w-44 ${
-                            featured
-                              ? "text-[#cb6615] font-semibold"
-                              : past
-                              ? "line-through text-[#9ba8b4]"
-                              : "text-[#575756]"
-                          }`}
-                        >
-                          {event.date}
-                        </span>
-                        <span
-                          className={`text-[15px] font-bold leading-snug ${
-                            featured
-                              ? "text-[#cb6615] text-[18px]"
-                              : past
-                              ? "line-through text-[#9ba8b4]"
-                              : "text-[#252525]"
-                          }`}
-                        >
-                          {event.name}
+                      {/* Arrow connector */}
+                      <div className="hidden sm:flex items-center justify-center bg-white w-10 shrink-0 border-l border-r border-[#e8f0f5]">
+                        <ArrowRightIcon />
+                      </div>
+                      {/* Mobile: down arrow */}
+                      <div className="flex sm:hidden items-center justify-center bg-white h-8 border-t border-[#e8f0f5]">
+                        <ArrowDownIcon />
+                      </div>
+
+                      {/* Detail card */}
+                      <div className="bg-white rounded-2xl sm:rounded-l-none shadow-sm flex-1 p-6 flex flex-col gap-4">
+                        {/* Countdown */}
+                        {daysLeft !== null && (
+                          <div>
+                            <span
+                              className="inline-flex items-center text-[13px] font-bold text-white px-4 py-1.5 rounded-full"
+                              style={{ background: countdownBg }}
+                            >
+                              {daysLeft > 0 ? `Nur noch ${daysLeft} Tage` : "Heute ist es soweit!"}
+                            </span>
+                          </div>
+                        )}
+
+                        {/* Date + title */}
+                        <div>
+                          <p className="text-[14px] font-semibold text-[#cb6615]">{event.date}</p>
+                          <p className="text-[22px] font-bold text-[#cb6615] leading-snug mt-0.5">
+                            Auftakt in den Sommer – Freibadfest
+                          </p>
+                        </div>
+
+                        {/* Info table */}
+                        <table className="text-[15px] w-full">
+                          <tbody>
+                            {featuredMeta.details.map(({ label, value }) => (
+                              <tr key={label} className="align-top">
+                                <td className="text-[#575756] pr-5 pb-3 whitespace-nowrap">{label}</td>
+                                <td className="font-bold text-[#252525] pb-3">{value}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+
+                        {/* Admission */}
+                        <span className="inline-flex items-center gap-2 self-start text-[13px] font-semibold text-white bg-[#3d8a3a] px-3 py-1.5 rounded-full">
+                          <TicketIcon />
+                          {featuredMeta.admission}
                         </span>
                       </div>
 
-                      {/* Featured event detail card */}
-                      {featured && (
-                        <div className="bg-white rounded-2xl p-5 mt-3 mb-4 shadow-sm">
-                          <table className="text-[15px] w-full mb-4">
-                            <tbody>
-                              {featuredMeta.details.map(({ label, value }) => (
-                                <tr key={label} className="align-top">
-                                  <td className="text-[#575756] pr-5 pb-3 whitespace-nowrap">{label}</td>
-                                  <td className="font-bold text-[#252525] pb-3">{value}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                          <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-white bg-[#3d8a3a] px-3 py-1.5 rounded-full">
-                            <TicketIcon />
-                            {featuredMeta.admission}
-                          </span>
-                        </div>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+                    </div>
+                  </li>
+                );
+              }
 
-          </div>
+              // Normal event row
+              return (
+                <li key={event.isoDate}>
+                  <div
+                    className={`flex gap-6 items-baseline py-3 border-b border-[#d0dde8] ${
+                      past ? "opacity-35" : ""
+                    }`}
+                  >
+                    <span
+                      className={`text-[14px] shrink-0 w-44 ${
+                        past ? "line-through text-[#9ba8b4]" : "text-[#575756]"
+                      }`}
+                    >
+                      {event.date}
+                    </span>
+                    <span
+                      className={`text-[15px] font-bold leading-snug ${
+                        past ? "line-through text-[#9ba8b4]" : "text-[#252525]"
+                      }`}
+                    >
+                      {event.name}
+                    </span>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </AnimateIn>
 
       </div>
     </section>
+  );
+}
+
+function ArrowRightIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cb6615" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+function ArrowDownIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#cb6615" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 5v14M6 13l6 6 6-6" />
+    </svg>
   );
 }
 
