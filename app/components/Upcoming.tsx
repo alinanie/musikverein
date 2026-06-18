@@ -56,7 +56,7 @@ export default function Upcoming() {
   const countdownBg = daysLeft !== null && daysLeft <= 7 ? "#c0392b" : "#3d8a3a";
 
   return (
-    <section className="bg-[#e6eff7] py-16 min-[720px]:py-24">
+    <section className="bg-[#f0e5d4] py-16 min-[720px]:py-24">
       <div className="max-w-5xl mx-auto px-6">
 
         {/* Section header */}
