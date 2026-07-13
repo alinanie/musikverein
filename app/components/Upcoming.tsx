@@ -84,7 +84,7 @@ export default function Upcoming() {
                     <div className="my-6 flex flex-col sm:flex-row items-stretch gap-0">
 
                       {/* Poster card */}
-                      <div className="bg-white rounded-2xl sm:rounded-r-none shadow-sm sm:w-[220px] xl:w-[260px] shrink-0 flex flex-col overflow-hidden">
+                      <div className="bg-white rounded-tl-2xl rounded-tr-2xl sm:rounded-tr-none sm:rounded-bl-2xl shadow-sm sm:w-[220px] xl:w-[260px] shrink-0 flex flex-col overflow-hidden">
                         <Image
                           src={featuredMeta.image}
                           alt="Hellmonsödter Marktfestchen"
@@ -99,7 +99,7 @@ export default function Upcoming() {
                       </div>
 
                       {/* Detail card */}
-                      <div className="bg-white rounded-2xl sm:rounded-l-none shadow-sm flex-1 p-6 flex flex-col gap-4 border-l border-[#e8f0f5]">
+                      <div className="bg-white rounded-bl-2xl rounded-br-2xl sm:rounded-bl-none sm:rounded-tr-2xl shadow-sm flex-1 p-6 flex flex-col gap-4 border-t sm:border-t-0 sm:border-l border-[#e8f0f5]">
                         {/* Countdown */}
                         {daysLeft !== null && (
                           <div>
@@ -112,10 +112,9 @@ export default function Upcoming() {
                           </div>
                         )}
 
-                        {/* Date + title */}
+                        {/* Title */}
                         <div>
-                          <p className="text-[14px] font-semibold text-[#cb6615]">{event.date}</p>
-                          <p className="text-[22px] font-bold text-[#cb6615] leading-snug mt-0.5">
+                          <p className="text-[22px] font-bold text-[#cb6615] leading-snug">
                             Hellmonsödter Marktfestchen
                           </p>
                         </div>
@@ -148,12 +147,12 @@ export default function Upcoming() {
               return (
                 <li key={event.isoDate}>
                   <div
-                    className={`flex gap-6 items-baseline py-3 border-b border-[#d0dde8] ${
-                      past ? "opacity-35" : ""
+                    className={`flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 py-3 border-b border-[#d0dde8] ${
+                      past ? "opacity-70" : ""
                     }`}
                   >
                     <span
-                      className={`text-[14px] shrink-0 w-44 ${
+                      className={`text-[14px] sm:shrink-0 sm:w-44 ${
                         past ? "text-[#9ba8b4]" : "text-[#575756]"
                       }`}
                     >
