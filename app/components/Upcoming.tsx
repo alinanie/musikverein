@@ -4,24 +4,24 @@ import AnimateIn from "./AnimateIn";
 import { useEffect, useState } from "react";
 
 const featuredMeta = {
-  image: "/images/freibadfest.jpg",
-  note: "Nur bei Schönwetter",
-  admission: "Eintritt frei ab 15:00 Uhr",
+  image: "/images/martkfestchen.png",
+  note: "Marktplatz Hellmonsödt",
+  admission: "Live-Musik mit Richard Darian ab 20:30 Uhr",
   details: [
-    { label: "Wann",   value: "Freitag, 10. Juli" },
-    { label: "Wo",     value: "Freibad Hellmonsödt" },
-    { label: "Beginn", value: "ab 15:00 Uhr" },
-    { label: "Was",    value: "Weinbar, Dämmerschoppen, DJ" },
+    { label: "Wann",   value: "Samstag, 1. August" },
+    { label: "Wo",     value: "Marktplatz Hellmonsödt" },
+    { label: "Beginn", value: "ab 17:00 Uhr" },
+    { label: "Was",    value: "Essen & Trinken, Dämmerschoppen, Live-Musik" },
   ],
-  targetDate: new Date("2026-07-10"),
+  targetDate: new Date("2026-08-01"),
 };
 
 const events = [
   { date: "20. Juni, Samstag",      isoDate: "2026-06-20", name: "Sonnwendfeuer" },
   { date: "27. Juni, Samstag",      isoDate: "2026-06-27", name: "Bezirksmusikfest Schenkenfelden – Marschwertung" },
   { date: "5. Juli, Sonntag",       isoDate: "2026-07-05", name: "Pfarrfest" },
-  { date: "10. Juli, Freitag",      isoDate: "2026-07-10", name: "Auftakt in den Sommer – Freibadfest", featured: true },
-  { date: "1. August, Samstag",     isoDate: "2026-08-01", name: "Hellmonsödter Marktfestchen" },
+  { date: "10. Juli, Freitag",      isoDate: "2026-07-10", name: "Auftakt in den Sommer – Freibadfest" },
+  { date: "1. August, Samstag",     isoDate: "2026-08-01", name: "Hellmonsödter Marktfestchen", featured: true },
   { date: "13. September, Sonntag", isoDate: "2026-09-13", name: "Abschluss des Kindersommers & Herbstfest" },
   { date: "20. September, Sonntag", isoDate: "2026-09-20", name: "Jubelhochzeiten" },
   { date: "27. September, Sonntag", isoDate: "2026-09-27", name: "Erntedankfest" },
@@ -87,14 +87,14 @@ export default function Upcoming() {
                       <div className="bg-white rounded-2xl sm:rounded-r-none shadow-sm sm:w-[220px] xl:w-[260px] shrink-0 flex flex-col overflow-hidden">
                         <Image
                           src={featuredMeta.image}
-                          alt="Auftakt in den Sommer – Freibadfest"
-                          width={1414}
-                          height={2000}
+                          alt="Hellmonsödter Marktfestchen"
+                          width={1587}
+                          height={2245}
                           className="w-full h-auto"
                           priority
                         />
                         <div className="flex items-center justify-center gap-1.5 py-3 px-4 text-[13px] text-[#575756] font-medium">
-                          ⛅ {featuredMeta.note}
+                          📍 {featuredMeta.note}
                         </div>
                       </div>
 
@@ -116,7 +116,7 @@ export default function Upcoming() {
                         <div>
                           <p className="text-[14px] font-semibold text-[#cb6615]">{event.date}</p>
                           <p className="text-[22px] font-bold text-[#cb6615] leading-snug mt-0.5">
-                            Auftakt in den Sommer – Freibadfest
+                            Hellmonsödter Marktfestchen
                           </p>
                         </div>
 
