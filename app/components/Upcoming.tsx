@@ -154,14 +154,14 @@ export default function Upcoming() {
                   >
                     <span
                       className={`text-[14px] shrink-0 w-44 ${
-                        past ? "line-through text-[#9ba8b4]" : "text-[#575756]"
+                        past ? "text-[#9ba8b4]" : "text-[#575756]"
                       }`}
                     >
                       {event.date}
                     </span>
                     <span
                       className={`text-[15px] font-bold leading-snug ${
-                        past ? "line-through text-[#9ba8b4]" : "text-[#252525]"
+                        past ? "text-[#9ba8b4]" : "text-[#252525]"
                       }`}
                     >
                       {event.name}
