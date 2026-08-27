@@ -70,7 +70,7 @@ export default function Navbar() {
               >
                 {link.label}
                 {link.badge && (
-                  <span className="absolute -top-2 -right-6 text-[11px] font-semibold text-[#d4a574] bg-[#fff8f0] px-1.5 py-0.5 rounded whitespace-nowrap">
+                  <span className="absolute -top-4 -right-8 text-[11px] font-semibold text-[#be5406] bg-[#fff8f0] px-1.5 py-0.5 rounded whitespace-nowrap">
                     {link.badge}
                   </span>
                 )}
