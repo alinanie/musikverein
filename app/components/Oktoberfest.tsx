@@ -22,14 +22,6 @@ export default function Oktoberfest() {
 
             {/* Info section */}
             <div className="max-w-2xl">
-              <h2 className="text-[40px] min-[720px]:text-[48px] font-bold text-[#252525] font-[family-name:var(--font-palanquin)] mb-4">
-                Oktoberfest Hellmonsödt
-              </h2>
-
-              <p className="text-[20px] text-[#1e88e5] font-[family-name:var(--font-birthstone-bounce)] mb-6">
-                Mit LISA & THE MELLOWS
-              </p>
-
               <div className="grid grid-cols-2 gap-6 mb-8 min-[720px]:grid-cols-4">
                 <div className="bg-[#fff8f0] rounded-lg p-4">
                   <p className="text-[12px] text-[#d4a574] font-semibold mb-2">DATUM</p>
@@ -47,13 +39,6 @@ export default function Oktoberfest() {
                   <p className="text-[12px] text-[#d4a574] font-semibold mb-2">TICKETS</p>
                   <p className="text-[18px] font-bold text-[#252525]">Coming soon</p>
                 </div>
-              </div>
-
-              {/* Coming soon message */}
-              <div className="inline-block bg-gradient-to-r from-[#1e88e5] to-[#1565c0] text-white px-8 py-4 rounded-full">
-                <p className="text-[16px] font-semibold">
-                  ✨ Weitere Informationen folgen in Kürze ✨
-                </p>
               </div>
             </div>
           </div>
