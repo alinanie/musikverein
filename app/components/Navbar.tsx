@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const links = [
+  { label: "Oktoberfest", href: "#oktoberfest", sectionId: "oktoberfest", badge: "Coming soon" },
   { label: "Über uns", href: "#ueber-uns", sectionId: "ueber-uns" },
   { label: "Veranstaltungen", href: "#veranstaltungen", sectionId: "veranstaltungen" },
   { label: "Mitmachen", href: "#mitmachen", sectionId: "mitmachen" },
@@ -68,6 +69,11 @@ export default function Navbar() {
                 `}
               >
                 {link.label}
+                {link.badge && (
+                  <span className="absolute -top-2 -right-6 text-[11px] font-semibold text-[#d4a574] bg-[#fff8f0] px-1.5 py-0.5 rounded whitespace-nowrap">
+                    {link.badge}
+                  </span>
+                )}
                 {isActive && (
                   <span className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-[#00628e]" />
                 )}
@@ -98,16 +104,22 @@ export default function Navbar() {
           {links.map((link) => {
             const isActive = activeSection === link.sectionId;
             return (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={`text-[18px] font-medium transition-colors
-                  ${isActive ? "text-[#00628e] font-semibold" : "text-[#575756] hover:text-[#00628e]"}
-                `}
-              >
-                {link.label}
-              </a>
+              <div key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={`inline-block text-[18px] font-medium transition-colors
+                    ${isActive ? "text-[#00628e] font-semibold" : "text-[#575756] hover:text-[#00628e]"}
+                  `}
+                >
+                  {link.label}
+                  {link.badge && (
+                    <span className="ml-2 text-[11px] font-semibold text-[#d4a574] bg-[#fff3e0] px-1.5 py-0.5 rounded">
+                      {link.badge}
+                    </span>
+                  )}
+                </a>
+              </div>
             );
           })}
         </div>
