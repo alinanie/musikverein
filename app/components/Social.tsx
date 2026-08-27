@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Social() {
   return (
-    <section id="aktuelles" className="relative overflow-hidden py-20">
+    <section id="kontakt" className="relative overflow-hidden py-20">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image

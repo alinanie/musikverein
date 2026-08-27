@@ -53,7 +53,7 @@ function useCountdown(targetDate: Date) {
 
 export default function Upcoming() {
   return (
-    <section className="bg-[#f0e5d4] py-16 min-[720px]:py-24">
+    <section id="veranstaltungen" className="bg-[#f0e5d4] py-16 min-[720px]:py-24">
       <div className="max-w-5xl mx-auto px-6">
 
         {/* Section header */}
