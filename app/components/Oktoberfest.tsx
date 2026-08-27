@@ -9,9 +9,9 @@ export default function Oktoberfest() {
         <AnimateIn>
           <div className="flex flex-col items-center text-center">
             {/* Poster image */}
-            <div className="w-full max-w-[800px] mb-8">
+            <div className="w-full max-w-[900px] mb-8">
               <Image
-                src="/images/oktoberfest_poster.png"
+                src="/images/Ankündigungsbanner.png"
                 alt="Oktoberfest Hellmonsödt - Sa, 10.10.2026"
                 width={1200}
                 height={400}
