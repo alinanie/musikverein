@@ -29,6 +29,19 @@ function isPast(isoDate: string): boolean {
   return new Date(isoDate) < today;
 }
 
+function getNextUpcomingEvent(): string | null {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const upcomingEvents = events.filter((event) => {
+    const eventDate = new Date(event.isoDate);
+    return eventDate >= today;
+  });
+
+  if (upcomingEvents.length === 0) return null;
+  return upcomingEvents[0].isoDate;
+}
+
 function useDaysUntil(isoDate: string): number | null {
   const [days, setDays] = useState<number | null>(null);
 
@@ -65,17 +78,19 @@ export default function Upcoming() {
           <ul>
             {events.map((event) => {
               const past = isPast(event.isoDate);
-              const daysUntil = useDaysUntil(event.isoDate);
+              const nextEvent = getNextUpcomingEvent();
+              const isNextEvent = nextEvent === event.isoDate;
+              const daysUntil = isNextEvent ? useDaysUntil(event.isoDate) : null;
 
               return (
                 <li key={event.isoDate}>
                   <div
                     className={`flex flex-col gap-2 py-4 border-b border-[#d0dde8] ${
                       past ? "opacity-70" : ""
-                    } ${!past ? "sm:pl-32" : ""}`}
+                    } ${isNextEvent ? "sm:pl-32" : ""}`}
                   >
-                    {/* Countdown + arrow for upcoming events */}
-                    {!past && daysUntil !== null && (
+                    {/* Countdown + arrow only for next upcoming event */}
+                    {isNextEvent && daysUntil !== null && (
                       <div className="flex items-center gap-2 text-[13px]">
                         <span className={`font-semibold ${daysUntil <= 7 ? "text-[#c41e3a]" : "text-[#00628e]"}`}>
                           Nur noch {daysUntil} {daysUntil === 1 ? "Tag" : "Tage"}
