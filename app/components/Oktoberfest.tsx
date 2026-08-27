@@ -4,25 +4,28 @@ import AnimateIn from "./AnimateIn";
 
 export default function Oktoberfest() {
   return (
-    <section id="oktoberfest" className="bg-white py-16 min-[720px]:py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        <AnimateIn>
-          <div className="flex flex-col items-center text-center">
-            {/* Poster image */}
-            <div className="w-full max-w-[900px] mb-8">
-              <Image
-                src="/images/oktoberfest-poster.png"
-                alt="Oktoberfest Hellmonsödt - Sa, 10.10.2026"
-                width={1200}
-                height={400}
-                className="w-full h-auto rounded-lg shadow-lg"
-                priority
-              />
-            </div>
+    <section id="oktoberfest" className="bg-white">
+      {/* Full-width banner */}
+      <AnimateIn>
+        <div className="w-full">
+          <Image
+            src="/images/oktoberfest-poster.png"
+            alt="Oktoberfest Hellmonsödt - Sa, 10.10.2026"
+            width={1920}
+            height={500}
+            className="w-full h-auto"
+            priority
+          />
+        </div>
+      </AnimateIn>
 
-            {/* Info section */}
-            <div className="max-w-2xl">
-              <div className="grid grid-cols-2 gap-6 mb-8 min-[720px]:grid-cols-4">
+      {/* Info boxes section */}
+      <div className="py-16 min-[720px]:py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimateIn>
+            <div className="flex flex-col items-center text-center">
+              <div className="max-w-2xl">
+                <div className="grid grid-cols-2 gap-6 mb-8 min-[720px]:grid-cols-4">
                 <div className="bg-[#fff8f0] rounded-lg p-4">
                   <p className="text-[12px] text-[#d4a574] font-semibold mb-2">DATUM</p>
                   <p className="text-[18px] font-bold text-[#252525]">Sa, 10.10.2026</p>
@@ -41,8 +44,8 @@ export default function Oktoberfest() {
                 </div>
               </div>
             </div>
-          </div>
-        </AnimateIn>
+          </AnimateIn>
+        </div>
       </div>
     </section>
   );
