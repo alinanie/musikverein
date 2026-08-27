@@ -21,7 +21,7 @@ const events = [
   { date: "27. Juni, Samstag",      isoDate: "2026-06-27", name: "Bezirksmusikfest Schenkenfelden – Marschwertung" },
   { date: "5. Juli, Sonntag",       isoDate: "2026-07-05", name: "Pfarrfest" },
   { date: "10. Juli, Freitag",      isoDate: "2026-07-10", name: "Auftakt in den Sommer – Freibadfest" },
-  { date: "1. August, Samstag",     isoDate: "2026-08-01", name: "Hellmonsödter Marktfestchen", featured: true },
+  { date: "1. August, Samstag",     isoDate: "2026-08-01", name: "Hellmonsödter Marktfestchen" },
   { date: "13. September, Sonntag", isoDate: "2026-09-13", name: "Abschluss des Kindersommers & Herbstfest" },
   { date: "20. September, Sonntag", isoDate: "2026-09-20", name: "Jubelhochzeiten" },
   { date: "27. September, Sonntag", isoDate: "2026-09-27", name: "Erntedankfest" },
@@ -52,9 +52,6 @@ function useCountdown(targetDate: Date) {
 }
 
 export default function Upcoming() {
-  const daysLeft = useCountdown(featuredMeta.targetDate);
-  const countdownBg = daysLeft !== null && daysLeft <= 7 ? "#c0392b" : "#3d8a3a";
-
   return (
     <section className="bg-[#f0e5d4] py-16 min-[720px]:py-24">
       <div className="max-w-5xl mx-auto px-6">
