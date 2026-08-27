@@ -11,7 +11,7 @@ export default function Oktoberfest() {
             {/* Poster image */}
             <div className="w-full max-w-[900px] mb-8">
               <Image
-                src="/images/Ankündigungsbanner.png"
+                src="/images/oktoberfest-poster.png"
                 alt="Oktoberfest Hellmonsödt - Sa, 10.10.2026"
                 width={1200}
                 height={400}
