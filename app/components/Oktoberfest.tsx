@@ -4,24 +4,23 @@ import AnimateIn from "./AnimateIn";
 
 export default function Oktoberfest() {
   return (
-    <section id="oktoberfest" className="bg-white">
-      {/* Full-width banner */}
-      <AnimateIn>
-        <div className="w-full">
-          <Image
-            src="/images/oktoberfest-poster.png"
-            alt="Oktoberfest Hellmonsödt - Sa, 10.10.2026"
-            width={1920}
-            height={500}
-            className="w-full h-auto"
-            priority
-          />
-        </div>
-      </AnimateIn>
+    <section id="oktoberfest" className="bg-white py-16 min-[720px]:py-24">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Banner */}
+        <AnimateIn>
+          <div className="w-full mb-8">
+            <Image
+              src="/images/oktoberfest-poster.png"
+              alt="Oktoberfest Hellmonsödt - Sa, 10.10.2026"
+              width={1200}
+              height={400}
+              className="w-full h-auto rounded-lg shadow-lg"
+              priority
+            />
+          </div>
+        </AnimateIn>
 
-      {/* Info boxes section */}
-      <div className="py-16 min-[720px]:py-24">
-        <div className="max-w-7xl mx-auto px-6">
+        {/* Info boxes section */}
           <AnimateIn>
             <div className="flex flex-col items-center text-center">
               <div className="max-w-2xl">
@@ -46,7 +45,6 @@ export default function Oktoberfest() {
               </div>
             </div>
           </AnimateIn>
-        </div>
       </div>
     </section>
   );
