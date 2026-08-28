@@ -84,51 +84,56 @@ export default function Upcoming() {
 
               return (
                 <li key={event.isoDate}>
-                  <div
-                    className={`flex flex-col gap-2 py-4 border-b border-[#d0dde8] ${
-                      past ? "opacity-70" : ""
-                    } ${isNextEvent ? "sm:pl-32" : ""}`}
-                  >
-                    {/* Countdown + arrow only for next upcoming event */}
-                    {isNextEvent && daysUntil !== null && (
-                      <div className="flex items-center gap-2 text-[13px]">
-                        <span className={`font-semibold ${daysUntil <= 7 ? "text-[#c41e3a]" : "text-[#00628e]"}`}>
-                          Nur noch {daysUntil} {daysUntil === 1 ? "Tag" : "Tage"}
-                        </span>
-                        <span className="text-[#00628e]">→</span>
+                  {isNextEvent ? (
+                    /* Highlighted card for next event */
+                    <div className="bg-[#00628e] text-white rounded-lg p-6 mb-4">
+                      <div className="flex items-center gap-2 mb-3 text-[14px]">
+                        <span className="text-[18px]">→</span>
+                        <span className="font-semibold">Nur noch {daysUntil} {daysUntil === 1 ? "Tag" : "Tage"}</span>
                       </div>
-                    )}
-
-                    {/* Date and name */}
-                    <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
-                      <span
-                        className={`text-[14px] sm:shrink-0 sm:w-44 ${
-                          past ? "text-[#9ba8b4]" : "text-[#575756]"
-                        }`}
-                      >
-                        {event.date}
-                      </span>
-                      <span
-                        className={`text-[15px] font-bold leading-snug ${
-                          past ? "text-[#9ba8b4]" : "text-[#252525]"
-                        }`}
-                      >
-                        {event.name}
-                      </span>
+                      <div className="mb-3">
+                        <p className="text-[13px] opacity-90 mb-1">{event.date}</p>
+                        <p className="text-[20px] font-bold leading-snug">{event.name}</p>
+                      </div>
+                      {event.time && (
+                        <p className="text-[14px] opacity-90 mb-1">{event.time}</p>
+                      )}
+                      {event.location && (
+                        <p className="text-[14px] opacity-90">{event.location}</p>
+                      )}
                     </div>
+                  ) : (
+                    /* Regular event row */
+                    <div className="flex flex-col gap-2 py-4 border-b border-[#d0dde8]">
+                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                        <span
+                          className={`text-[14px] sm:shrink-0 sm:w-44 ${
+                            past ? "text-[#9ba8b4]" : "text-[#575756]"
+                          }`}
+                        >
+                          {event.date}
+                        </span>
+                        <span
+                          className={`text-[15px] font-bold leading-snug ${
+                            past ? "text-[#9ba8b4]" : "text-[#252525]"
+                          }`}
+                        >
+                          {event.name}
+                        </span>
+                      </div>
 
-                    {/* Additional info */}
-                    {event.time && (
-                      <div className="text-[14px] text-[#575756] ml-0 sm:ml-0">
-                        <p><span className="font-medium">Uhrzeit:</span> {event.time}</p>
-                      </div>
-                    )}
-                    {event.location && (
-                      <div className="text-[14px] text-[#575756]">
-                        <p><span className="font-medium">Ort:</span> {event.location}</p>
-                      </div>
-                    )}
-                  </div>
+                      {event.time && (
+                        <div className="text-[14px] text-[#575756]">
+                          <p><span className="font-medium">Uhrzeit:</span> {event.time}</p>
+                        </div>
+                      )}
+                      {event.location && (
+                        <div className="text-[14px] text-[#575756]">
+                          <p><span className="font-medium">Ort:</span> {event.location}</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </li>
               );
             })}
