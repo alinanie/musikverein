@@ -37,9 +37,15 @@ export default function Oktoberfest() {
                     <p className="text-[12px] text-[#d4a574] font-semibold mb-2">ORT</p>
                     <p className="text-[18px] font-bold text-[#252525]">Turnsaal der Schulen</p>
                   </div>
-                  <div className="bg-[#f0e5d4] rounded-lg p-4">
-                    <p className="text-[12px] text-[#d4a574] font-semibold mb-2">TICKETS</p>
-                    <p className="text-[18px] font-bold text-[#252525]">Coming soon</p>
+                  <div className="bg-[#f0e5d4] rounded-lg p-4 flex flex-col items-center justify-center">
+                    <a
+                      href="https://vorverkauf.mvhellmonsoedt.at"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-[#cb6615] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#b55a12] transition-colors text-[16px]"
+                    >
+                      Tickets kaufen
+                    </a>
                   </div>
                 </div>
               </div>
