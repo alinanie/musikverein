@@ -10,8 +10,8 @@ export default function Oktoberfest() {
         <AnimateIn>
           <div className="w-full mb-8">
             <Image
-              src="/images/oktoberfest-poster.png"
-              alt="Oktoberfest Hellmonsödt - Sa, 10.10.2026"
+              src="/images/oktoberfest-poster-2.png"
+              alt="Oktoberfest Hellmonsödt - Jetzt Tickets kaufen"
               width={1200}
               height={400}
               className="w-full h-auto rounded-lg shadow-lg"
