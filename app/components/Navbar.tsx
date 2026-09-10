@@ -26,7 +26,10 @@ export default function Navbar() {
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
-    links.forEach(({ sectionId }) => {
+    links.forEach((link) => {
+      const sectionId = (link as any).sectionId;
+      if (!sectionId) return;
+
       const el = document.getElementById(sectionId);
       if (!el) return;
 
