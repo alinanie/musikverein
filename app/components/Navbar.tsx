@@ -61,10 +61,22 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {links.map((link) => {
+          {links.map((link, index) => {
             const isActive = activeSection === link.sectionId;
             const isExternal = (link as any).external;
-            return (
+            const isFirstLink = index === 0 && isExternal;
+
+            return isFirstLink ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2 border-2 border-[#cb6615] text-[#cb6615] font-semibold rounded-lg text-[16px] transition-all hover:bg-[#cb6615] hover:text-white"
+              >
+                {link.label}
+              </a>
+            ) : (
               <a
                 key={link.href}
                 href={link.href}
@@ -103,23 +115,36 @@ export default function Navbar() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-[#fff8f0] border-t border-[#e8ddd0] px-6 py-4 flex flex-col gap-4">
-          {links.map((link) => {
+          {links.map((link, index) => {
             const isActive = activeSection === link.sectionId;
             const isExternal = (link as any).external;
+            const isFirstLink = index === 0 && isExternal;
+
             return (
               <div key={link.href}>
-                <a
-                  href={link.href}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noopener noreferrer" : undefined}
-                  onClick={() => !isExternal && setOpen(false)}
-                  className={`inline-block text-[18px] font-medium transition-colors
-                    ${isActive ? "text-[#00628e] font-semibold" : "text-[#575756] hover:text-[#00628e]"}
-                  `}
-                >
-                  {link.label}
-                  {isExternal && <span className="ml-1">↗</span>}
-                </a>
+                {isFirstLink ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-5 py-2 border-2 border-[#cb6615] text-[#cb6615] font-semibold rounded-lg text-[16px] transition-all hover:bg-[#cb6615] hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <a
+                    href={link.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    onClick={() => !isExternal && setOpen(false)}
+                    className={`inline-block text-[18px] font-medium transition-colors
+                      ${isActive ? "text-[#00628e] font-semibold" : "text-[#575756] hover:text-[#00628e]"}
+                    `}
+                  >
+                    {link.label}
+                    {isExternal && <span className="ml-1">↗</span>}
+                  </a>
+                )}
               </div>
             );
           })}
