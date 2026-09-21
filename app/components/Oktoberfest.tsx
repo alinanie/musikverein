@@ -48,6 +48,9 @@ export default function Oktoberfest() {
                     </a>
                   </div>
                 </div>
+                <p className="text-center text-[15px] text-[#575756] mt-6 max-w-[500px] mx-auto leading-relaxed">
+                  Tischreservierung ab 6 Personen bitte an <a href="mailto:RK_3@gmx.at" className="text-[#00628e] font-semibold hover:underline">RK_3@gmx.at</a>
+                </p>
               </div>
             </div>
           </AnimateIn>
