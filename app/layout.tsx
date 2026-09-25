@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   },
   description:
     "Der Musikverein Hellmonsödt – 61 aktive MusikerInnen aus dem Mühlviertel. Konzerte, Ausrückungen & Jugendmusik in Hellmonsödt, Oberösterreich.",
+  verification: {
+    google: "yHLPo9FpjPxDDD3IPzU4I-LNCtEPwg1-AjQJ-ciGMV0",
+  },
   openGraph: {
     type: "website",
     locale: "de_AT",
