@@ -137,12 +137,21 @@ export default function Upcoming() {
 
                       {isHerbstkonzert && (
                         <div className="mt-4 sm:mt-0 sm:ml-auto sm:shrink-0">
+                          {/* Mobile Banner */}
                           <Image
                             src="/images/herbstkonzert.png"
                             alt="Herbstkonzert Plakat"
                             width={250}
                             height={180}
-                            className="w-full sm:w-[250px] h-auto rounded-lg shadow-md"
+                            className="sm:hidden w-full h-auto rounded-lg shadow-md"
+                          />
+                          {/* Desktop Banner */}
+                          <Image
+                            src="/images/herbst-desktopbanner.png"
+                            alt="Herbstkonzert Desktop Banner"
+                            width={350}
+                            height={150}
+                            className="hidden sm:block w-[350px] h-auto rounded-lg shadow-md"
                           />
                         </div>
                       )}
