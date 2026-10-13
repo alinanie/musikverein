@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 
 const events = [
@@ -81,6 +82,7 @@ export default function Upcoming() {
               const nextEvent = getNextUpcomingEvent();
               const isNextEvent = nextEvent === event.isoDate;
               const daysUntil = isNextEvent ? useDaysUntil(event.isoDate) : null;
+              const isHerbstkonzert = event.name === "Herbstkonzert";
 
               return (
                 <li key={event.isoDate}>
@@ -104,8 +106,8 @@ export default function Upcoming() {
                     </div>
                   ) : (
                     /* Regular event row */
-                    <div className="flex flex-col gap-2 py-4 border-b border-[#d0dde8]">
-                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
+                    <div className={`flex flex-col gap-2 py-4 border-b border-[#d0dde8] ${isHerbstkonzert ? "sm:flex-row sm:items-center sm:gap-6" : ""}`}>
+                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 flex-1">
                         <span
                           className={`text-[14px] sm:shrink-0 sm:w-44 ${
                             past ? "text-[#9ba8b4]" : "text-[#575756]"
@@ -130,6 +132,18 @@ export default function Upcoming() {
                       {event.location && (
                         <div className="text-[14px] text-[#575756]">
                           <p><span className="font-medium">Ort:</span> {event.location}</p>
+                        </div>
+                      )}
+
+                      {isHerbstkonzert && (
+                        <div className="mt-4 sm:mt-0 sm:ml-auto sm:shrink-0">
+                          <Image
+                            src="/images/herbstkonzert.png"
+                            alt="Herbstkonzert Plakat"
+                            width={250}
+                            height={180}
+                            className="w-full sm:w-[250px] h-auto rounded-lg shadow-md"
+                          />
                         </div>
                       )}
                     </div>
