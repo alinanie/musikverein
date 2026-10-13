@@ -149,9 +149,9 @@ export default function Upcoming() {
                           <Image
                             src="/images/herbst-desktopbanner.png"
                             alt="Herbstkonzert Desktop Banner"
-                            width={350}
-                            height={150}
-                            className="hidden sm:block w-[350px] h-auto rounded-lg shadow-md"
+                            width={800}
+                            height={340}
+                            className="hidden sm:block w-[800px] h-auto rounded-lg shadow-md"
                           />
                         </div>
                       )}
