@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const links = [
-  { label: "Oktoberfest Tickets", href: "https://vorverkauf.mvhellmonsoedt.at", external: true },
   { label: "Über uns", href: "#ueber-uns", sectionId: "ueber-uns" },
   { label: "Veranstaltungen", href: "#veranstaltungen", sectionId: "veranstaltungen" },
   { label: "Mitmachen", href: "#mitmachen", sectionId: "mitmachen" },
