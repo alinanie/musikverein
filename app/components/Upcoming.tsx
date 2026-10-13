@@ -106,8 +106,8 @@ export default function Upcoming() {
                     </div>
                   ) : (
                     /* Regular event row */
-                    <div className={`flex flex-col gap-2 py-4 border-b border-[#d0dde8] ${isHerbstkonzert ? "sm:flex-row sm:items-center sm:gap-6" : ""}`}>
-                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 flex-1">
+                    <div className="flex flex-col gap-2 py-4 border-b border-[#d0dde8]">
+                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
                         <span
                           className={`text-[14px] sm:shrink-0 sm:w-44 ${
                             past ? "text-[#9ba8b4]" : "text-[#575756]"
@@ -136,7 +136,7 @@ export default function Upcoming() {
                       )}
 
                       {isHerbstkonzert && (
-                        <div className="mt-4 sm:mt-0 sm:ml-auto sm:shrink-0">
+                        <div className="mt-4">
                           {/* Mobile Banner */}
                           <Image
                             src="/images/herbstkonzert.png"
@@ -151,7 +151,7 @@ export default function Upcoming() {
                             alt="Herbstkonzert Desktop Banner"
                             width={800}
                             height={340}
-                            className="hidden sm:block w-[800px] h-auto rounded-lg shadow-md"
+                            className="hidden sm:block w-full h-auto rounded-lg shadow-md"
                           />
                         </div>
                       )}
