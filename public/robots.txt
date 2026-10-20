@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://musikverein-hellmonsoedt.vercel.app/sitemap.xml
