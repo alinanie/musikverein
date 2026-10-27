@@ -19,6 +19,17 @@ export default function Footer() {
             <p className="font-semibold text-[#252525]">Musikverein Hellmonsödt</p>
             <p>Marktplatz 1</p>
             <p>4202 Hellmonsödt</p>
+            <p className="mt-2 text-[12px]">
+              Registernummer: 1210 (Verbands-Code: OO-12-010)
+            </p>
+            <a
+              href="https://urfahr.ooe-bv.at/vereinssuche"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-1 text-[12px] text-[#00628e] hover:underline"
+            >
+              Vereinseintrag ansehen ↗
+            </a>
           </address>
 
           {/* Footer links */}
