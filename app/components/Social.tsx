@@ -46,7 +46,7 @@ export default function Social() {
             </a>
 
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/MusikvereinHellmonsodt/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 bg-white rounded-2xl px-6 py-4 hover:scale-105 transition-transform shadow-lg"
