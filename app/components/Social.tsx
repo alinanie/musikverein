@@ -31,7 +31,7 @@ export default function Social() {
           {/* Links */}
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://instagram.com/musikverein_hellmonsoedt"
+              href="https://www.instagram.com/mv_hellmonsoedt/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 bg-white rounded-2xl px-6 py-4 hover:scale-105 transition-transform shadow-lg"
@@ -41,7 +41,7 @@ export default function Social() {
               </div>
               <div>
                 <p className="text-[14px] font-bold text-[#252525]">Instagram</p>
-                <p className="text-[13px] text-[#575756]">@musikverein_hellmonsoedt</p>
+                <p className="text-[13px] text-[#575756]">@mv_hellmonsoedt</p>
               </div>
             </a>
 
