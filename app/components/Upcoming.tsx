@@ -82,7 +82,6 @@ export default function Upcoming() {
               const nextEvent = getNextUpcomingEvent();
               const isNextEvent = nextEvent === event.isoDate;
               const daysUntil = isNextEvent ? useDaysUntil(event.isoDate) : null;
-              const isHerbstkonzert = event.name === "Herbstkonzert";
 
               return (
                 <li key={event.isoDate}>
@@ -132,27 +131,6 @@ export default function Upcoming() {
                       {event.location && (
                         <div className="text-[14px] text-[#575756]">
                           <p><span className="font-medium">Ort:</span> {event.location}</p>
-                        </div>
-                      )}
-
-                      {isHerbstkonzert && (
-                        <div className="mt-4">
-                          {/* Mobile Banner */}
-                          <Image
-                            src="/images/herbstkonzert.png"
-                            alt="Herbstkonzert Plakat"
-                            width={250}
-                            height={180}
-                            className="sm:hidden w-full h-auto rounded-lg shadow-md"
-                          />
-                          {/* Desktop Banner */}
-                          <Image
-                            src="/images/herbst-desktopbanner.png"
-                            alt="Herbstkonzert Desktop Banner"
-                            width={800}
-                            height={340}
-                            className="hidden sm:block w-full h-auto rounded-lg shadow-md"
-                          />
                         </div>
                       )}
                     </div>
