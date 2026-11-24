@@ -22,6 +22,13 @@ const events = [
   { date: "1. November, Sonntag",   isoDate: "2026-11-01", name: "Allerheiligen" },
   { date: "7. November, Samstag",   isoDate: "2026-11-07", name: "Konzertwertung" },
   { date: "21. November, Samstag",  isoDate: "2026-11-21", name: "Herbstkonzert" },
+  {
+    date: "11. Dezember, Freitag",
+    isoDate: "2026-12-11",
+    name: "Punschstand des Musikvereins Hellmonsödt",
+    time: "16:00 - 22:00 Uhr",
+    location: "Am Marktplatz vor der Kirche"
+  },
 ];
 
 function isPast(isoDate: string): boolean {
